@@ -94,3 +94,5 @@
   to LLMs?
 - What is the difference between LLM and AI?
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
+
+**The debug mode is for developers while you are coding to debug it better. It does not automatically make the code faster by doing some optimisations. Release mode is used after whole code is done as it does optimisations which will make the code faster.**
