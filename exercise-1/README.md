@@ -6,36 +6,50 @@
 
 - Answer the following questions in this file and commit and push your changes.
 - Bonus sections are more difficult and optional.
-- How can you find the information required to complete these tasks? Ask ChatGPT, google the things to learn from some common useful sites
+- How can you find the information required to complete these tasks?
+  - google the things to learn from some common sites.
 - How can you tell if the source of your information is good? 
+  - There are some well known sites, if it is well-written.
 - How would you define "good" in this situation?
+  - Something that helps us in understanding the topic well and solving the tasks
 
 ## Learn Basics of g++ CLI
 
 - Compile the TCP client and server using `g++` from command line.
-- What are the most important command line arguments to learn for `g++`?
-- What is the difference between debug vs release versions?
+- What are the most important command line arguments to learn for `g++`? -c, -o, -g, -O
+- What is the difference between debug vs release versions? 
+  - debug version is used using normal testing, release is used for actual deployment in production
 - What are the tradeoffs between debug and release versions?
-- What arguments would you use in a debug build?
+  - debug takes lesser time to compile but code is slower, release takes longer to compile and the code is faster
+- What arguments would you use in a debug build? 
+  - -g
 - What about for release?
+  - -O
 - What other kinds of build types are useful?
+  - profiling build, sanitized build 
 
 ## Learn Basics of Make
 
 - Create a Makefile that will speed up the process.
 - [Quickstart tutorial to make](https://makefiletutorial.com/) - Learn make 
   fundamentals with practical examples and common patterns.
-- How else can you learn about make?
+- How else can you learn about make? 
+  - Ask ChatGPT any doubts or look up some other websites
 - How can you tell if the resource you are using is correct?
+  - ???
 - Create a makefile such that when you run `make` with no arguments, it will:
   - Create `build/` directory if it does not exist
   - Create executables **client** and **server** in `build/`, if needed
-  - How does make know when it needs to rebuild the executables?
+  - How does make know when it needs to rebuild the executables? 
+    - it just checks if the prerequisites are newer than the target, executables in this case.
   - Change your Makefile such that `make clean` will remove `build/` and all
     its contents
 - What are the most important command line arguments to learn for make?
+  - -k, -i
 - What are the most important directives to learn about in Makefile?
+  - targets, variables, pattern rules
 - What are the most important commands to implement in your Makefile?
+  - g++, 
 - Which ones are essential, which ones are nice to haves?
 
 ## Learn Basics of Git

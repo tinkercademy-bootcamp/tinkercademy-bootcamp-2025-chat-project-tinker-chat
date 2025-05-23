@@ -1,15 +1,16 @@
-all: server client
 
-BUILD_DIR = ./build
-SRC_DIR = ./src
+BUILD_DIR = build
+SRC_DIR = src
 
-server: $(SRC_DIR)/tcp_echo_server.cc
+all: $(BUILD_DIR) $(BUILD_DIR)/server $(BUILD_DIR)/client
+
+$(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
+
+build/server: $(SRC_DIR)/tcp_echo_server.cc
 	g++ $(SRC_DIR)/tcp_echo_server.cc -o $(BUILD_DIR)/server
 
-server_obj
-client: $(SRC_DIR)/tcp_echo_client.cc
-	mkdir -p $(BUILD_DIR)
+build/client: $(SRC_DIR)/tcp_echo_client.cc
 	g++ $(SRC_DIR)/tcp_echo_client.cc -o $(BUILD_DIR)/client
 
 clean:
