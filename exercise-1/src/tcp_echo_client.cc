@@ -11,8 +11,8 @@ int main(int argc, char** argv) {
   std::string message;
   if (argc !=1 )message = argv[1];
   else message = "Hello from client";
-  const int kPort = 8080;
-  const std::string kServerAddress = "127.0.0.1";
+  const int kPort = 35000;
+  const std::string kServerAddress = "3.108.171.148";
   sockaddr_in address;
   const int kBufferSize = 1024;
   char buffer[kBufferSize] = {0};
