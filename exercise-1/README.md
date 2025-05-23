@@ -13,9 +13,16 @@
 ## Learn Basics of g++ CLI
 
 - Compile the TCP client and server using `g++` from command line.
+##
 - What are the most important command line arguments to learn for `g++`?
+- Ans. g++ -o <output_file> <file_to_be_compiled>
+##
 - What is the difference between debug vs release versions?
+- Ans. the release version is more compiler-optimised than debug version. 
+##
 - What are the tradeoffs between debug and release versions?
+- Ans. The debug version takes lesser time to compile, hence suitable to debug whereas the release version is preferredd when we are the end of debugging and need a optimised compilation.
+##
 - What arguments would you use in a debug build?
 - What about for release?
 - What other kinds of build types are useful?
