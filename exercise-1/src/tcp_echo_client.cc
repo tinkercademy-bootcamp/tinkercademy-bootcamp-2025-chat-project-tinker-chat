@@ -8,12 +8,14 @@
 
 int main() {
   // #Question - are these the same type?
+  // #Answer - no, they are not; "Hello from client" is a C-string and the variable message is an std::string
   std::string message = "Hello from client";
   const int kPort = 8080;
   const std::string kServerAddress = "127.0.0.1";
   sockaddr_in address;
   const int kBufferSize = 1024;
-  char buffer[kBufferSize] = {0};
+  char buffer[kBufferSize] = {0}; 
+  int hi = 10;
   // Creating socket file descriptor
   int my_sock = socket(AF_INET, SOCK_STREAM, 0);
   if (my_sock < 0) {
