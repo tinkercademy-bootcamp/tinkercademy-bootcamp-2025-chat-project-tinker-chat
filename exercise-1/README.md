@@ -14,11 +14,23 @@
 
 - Compile the TCP client and server using `g++` from command line.
 - What are the most important command line arguments to learn for `g++`?
+  - use `g++ file.cpp -o file` to make binary file named `file`.
+  - use `g++ -c file.cpp` to just compile and make an object file named `file.o`. 
+  - use `g++ file1.o file2.o -o output` to link both the files and create an executable named `output`.
+  - use `g++ -g file.cpp -o output` to use gdb (a debugging tool).
+  - use `g++ -O2 file.cpp` to optimize the code.
 - What is the difference between debug vs release versions?
+  - The debug mode is for development period while you are coding which helps in debugging it better. It does not automatically make the code faster by doing some optimisations so this will help in debugging as the code is not changed. Release mode is used after whole code is done as it does optimisations which will make the code faster.
 - What are the tradeoffs between debug and release versions?
+  - In the debug mode, the code runs slower as there ae no optimisations, while in the release mode, we cannot debug.
 - What arguments would you use in a debug build?
+  - `g++ -g -O0 -Wall -Wextra -o output file.cpp` can be used. Here, -g is to use gdb debugger, -O0 means no optimisation, -Wall and -Wextra will give all the warnings in compiling the code.
 - What about for release?
+  - `g++ -O2 -DNDEBUG -Wall -Wextra -o output file.cpp` can be used. Here, -O2 is for optimising code and -DNDEBUG disbales all assert statements to make the code ready for release.
 - What other kinds of build types are useful?
+  - We can have debug + release mode in which there will be optimisation but we'll use the `-g` flag so that some debugging can happen and is useful for stack traces and profiling tools (e.g. gdb, valgrind).
+  - Mininimum Size Release in which we use the `-Os` flag to minimise the size. It may be used when there is a constraint on the size of the binary.
+  - There is Custom Testing Build with flag `-DTESTING` which helps us to run test-only code.
 
 ## Learn Basics of Make
 
@@ -94,5 +106,3 @@
   to LLMs?
 - What is the difference between LLM and AI?
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
-
-**The debug mode is for developers while you are coding which helps in debugging it better. It does not automatically make the code faster by doing some optimisations. Release mode is used after whole code is done as it does optimisations which will make the code faster.**

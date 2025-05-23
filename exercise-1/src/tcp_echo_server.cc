@@ -6,26 +6,25 @@
 
 int main() {
   const int kPort = 8080;
-  sockaddr_in address;
+  sockaddr_in6 address;
   socklen_t addrlen = sizeof(address);
   const int kBufferSize = 1024;
   char buffer[kBufferSize] = {0};
   int my_sock;
   int opt = 1;
   // Creating socket file descriptor
-  if ((my_sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+  if ((my_sock = socket(AF_INET6, SOCK_STREAM, 0)) < 0) {
     std::cerr << "Socket creation erron\n";
     return -1;
   }
   // Attaching socket to port
-  if (setsockopt(my_sock, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt,
-                 sizeof(opt))) {
-    std::cerr << "setsockopt error\n";
-    return -1;
-  }
-  address.sin_family = AF_INET;
-  address.sin_addr.s_addr = INADDR_ANY;
-  address.sin_port = htons(kPort);
+  if (setsockopt(my_sock, IPPROTO_IPV6, IPV6_V6ONLY, &opt, sizeof(opt))) {
+        std::cerr << "setsockopt IPV6_V6ONLY failed\n";
+        // Not fatal, continue anyway
+    }
+  address.sin6_family = AF_INET6;
+  address.sin6_addr = in6addr_any;
+  address.sin6_port = htons(kPort);
   // Bind the socket to the network address and port
   if (bind(my_sock, (sockaddr *)&address, sizeof(address)) < 0) {
     std::cerr << "bind failed\n";
