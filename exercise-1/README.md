@@ -15,7 +15,10 @@
 - Compile the TCP client and server using `g++` from command line.
 - What are the most important command line arguments to learn for `g++`?
 - What is the difference between debug vs release versions?
+  - Debug version preserves variable names and line numbers so that it's easier to trace the program execution with tools like gdb and valgrind, while release version heavily optimizes the code for performance
 - What are the tradeoffs between debug and release versions?
+  - Debug version: Improved debugging for the cost of larger binaries and slower performance
+  - Release version: Fast performance and smaller binaries for the cost of harder debugging
 - What arguments would you use in a debug build?
 - What about for release?
 - What other kinds of build types are useful?
