@@ -8,7 +8,7 @@
 
 int main() {
   // #Question - are these the same type?
-  // #Answer - no, they are not; "Hello from client" is a C-string and the variable message is an std::string
+  // #Answer - no, they are not; "Hello from client" is a string literal (const char*) and the variable message is an std::string
   std::string message = "Hello from client";
   const int kPort = 8080;
   const std::string kServerAddress = "127.0.0.1";
