@@ -73,9 +73,12 @@
 - Commit and push your changes to git
 - Each commit should be responding to a single task or question
 - Why is it important to keep your commit to a single task or question?
-- Is it better to have a lot of very small commits, or one big commit when 
-  everything is working?
+  - [DO LATER]
+- Is it better to have a lot of very small commits, or one big commit when everything is working?
+  - Lots of small commits clutter the commit history and make it very cumbersome to search for previous revisions while one big commit when everything is working may not allow you to go back to what was implemented some time ago (for eg, going back to an old implementation of a function which was not committed may not be possible)
+  - So it's important to strike the right balance between both
 - What are the most important commands to know in git?
+  - `git add`, `git commit`, `git push`, `git clone`, `git checkout`
 
 ## Introduction to Sockets
 
@@ -85,10 +88,19 @@
   `"hello message from the command prompt"` to the server
 - Commit your changes into git
 - What do all these headers do?
+  - `#include <arpa/inet.h>` provides functions for manipulating IP addresses and converting between host and network byte orders (eg. `inet_pton()`)
+  - `#include <iostream>` provides I/O functions (eg. `std::cin`)
+  - `#include <netinet/in.h>` defines constants and custom data-types for internet domain addresses (eg: `sockaddr_in`)  
+  - `#include <string.h>` provides the `std::string` class from the C++ STL
+  - `#include <sys/socket.h>` provides socket-related functions for network communication (eg. `bind()`)
+  - `#include <sys/types.h>` defines data types used in system calls (eg. `pid_t`)
+  - `#include <unistd.h>` declares POSIX API functions (eg. `read()`, `write()`)
 - How do you find out which part of the below code comes from which header?
-- How do you change the code so that you are sending messages to servers
-  other than localhost?
+  - Refer to `cppreference.com` or other similar documentations
+- How do you change the code so that you are sending messages to servers other than localhost?
+  - Modify the client to send requests the server's IP address instead of localhost (edit the variable `kServerAddress` in the file `tcp_echo_client.cc`)
 - How do you change the code to send to a IPv6 address instead of IPv4?
+  - [DO LATER]
 - **Bonus**: How do you change the client code to connect by hostname instead
   of IP address?
   
@@ -96,11 +108,21 @@
 
 - What is happening in line 26 of `tcp-echo-client.cc`? 
   `if (inet_pton(AF_INET, kServerAddress.c_str(), &address.sin_addr) <= 0) {`
+  - Converts the IP address from text format to binary format, for IPv4
+  - IP string is invalid: return value is 0
+  - Conversion from text format to binary format failed: return value is -1
 - What is happening in line 31 of `tcp-echo-client.cc`?
   `if (connect(my_sock, (sockaddr *)&address, sizeof(address)) < 0) {`
+  - Initiates a connection to the server
+  - If the return value is < 0, then it means that the connection to the server failed 
 - What is the difference between a pointer and a reference?
+  - Pointer is a variable that holds the memory address of another variable
+  - Reference is an alias for another variable
 - When is it better to use a pointer?
+  - When we want to be able to express `null` values
+  - Data structures like linked lists, where one object has to point to the memory location of another object
 - When is it better to use a reference?
+  - When passing a variable into a function, it can be passed by reference to avoid memory overhead due to variable copying
 - What is the difference between `std::string` and a C-style string?
 - What type is a C-style string?
 - What happens when you iterate a pointer?
