@@ -73,7 +73,7 @@
 - **Example**: `./client "hello message from the command prompt"` should send
   `"hello message from the command prompt"` to the server
 - Commit your changes into git
-- What do all these headers do?
+- What do all these headers do? 
 - How do you find out which part of the below code comes from which header?
 - How do you change the code so that you are sending messages to servers
   other than localhost?
