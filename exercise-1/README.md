@@ -7,14 +7,23 @@
 - Answer the following questions in this file and commit and push your changes.
 - Bonus sections are more difficult and optional.
 - How can you find the information required to complete these tasks?
+Google and the wide open internet
 - How can you tell if the source of your information is good?
+Official sources are better. Otherwise the more viewed something is the better
 - How would you define "good" in this situation?
+Clear, Concise and Correct
 
 ## Learn Basics of g++ CLI
 
 - Compile the TCP client and server using `g++` from command line.
+Done
 - What are the most important command line arguments to learn for `g++`?
+-c compiles without linking
+-o specifies output file
+-Wall show all warnings
+-Werror warnings treated as errors
 - What is the difference between debug vs release versions?
+debug 
 - What are the tradeoffs between debug and release versions?
 - What arguments would you use in a debug build?
 - What about for release?
@@ -81,6 +90,7 @@
 ## Learn Basics of Creating a C++ Project in Your IDE
 
 - How do you compile and run your project in your IDE?
+From the terminal as usual
 
 ## Improving Interactions with LLMs
 
