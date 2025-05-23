@@ -6,8 +6,8 @@
 
 - Answer the following questions in this file and commit and push your changes.
 - Bonus sections are more difficult and optional.
-- How can you find the information required to complete these tasks?
-- How can you tell if the source of your information is good?
+- How can you find the information required to complete these tasks? Ask ChatGPT, google the things to learn from some common useful sites
+- How can you tell if the source of your information is good? 
 - How would you define "good" in this situation?
 
 ## Learn Basics of g++ CLI
