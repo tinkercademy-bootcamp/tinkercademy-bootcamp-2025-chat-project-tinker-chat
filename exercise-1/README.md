@@ -7,9 +7,9 @@
 - Answer the following questions in this file and commit and push your changes.
 - Bonus sections are more difficult and optional.
 - How can you find the information required to complete these tasks?
-  - Google and the wide open internet!
+  - Google and the big open internet!
 - How can you tell if the source of your information is good?
-  - Official sources are better. Otherwise the more viewed something is, the better. 
+  - Official sources are better. Otherwise the more viewed something is, the better. Reddit can always be a place to verify the sources
 - How would you define "good" in this situation?
   - Clear, looks (and is!) trustworthy, exactly as concise or verbose as we need it to be
 
