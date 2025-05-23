@@ -6,9 +6,10 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-int main() {
+int main(int argc, char **argv) {
   // #Question - are these the same type?
-  std::string message = "Hello from client";
+  // 
+  std::string message = argc > 1 ? argv[1] : "";
   const int kPort = 8080;
   const std::string kServerAddress = "127.0.0.1";
   sockaddr_in address;
@@ -32,7 +33,7 @@ int main() {
     std::cerr << "Connection Failed\n";
     return -1;
   }
-  // Send message
+  // Send message (./client "hello message from the command prompt"` should send "hello message from the command prompt" to the server)
   send(my_sock, message.c_str(), message.size(), 0);
   std::cout << "Sent: " << message << "\n";
   // Wait for reply
