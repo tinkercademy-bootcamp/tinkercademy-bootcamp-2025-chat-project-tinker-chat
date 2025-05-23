@@ -24,16 +24,29 @@
 - Ans. The debug version takes lesser time to compile, hence suitable to debug whereas the release version is preferredd when we are the end of debugging and need a optimised compilation.
 ##
 - What arguments would you use in a debug build?
+
+Ans. We can use argumments like -g to enable debugging and -O0 to set the level of optimisation to zero
+##
 - What about for release?
+
+Ans. Similarly, we need -O2 -O3 to enable high levels of optimization
+##
 - What other kinds of build types are useful?
 
+Ans. The other build types include RelWithDebInfo(Release with Debug info) and Coverage Build(to measure the test coverage), MinSizeRel (the smallest bianry size build)
 ## Learn Basics of Make
 
 - Create a Makefile that will speed up the process.
 - [Quickstart tutorial to make](https://makefiletutorial.com/) - Learn make 
   fundamentals with practical examples and common patterns.
+##
 - How else can you learn about make?
+- Ans.can learn here at https://academy.make.com/
+##
 - How can you tell if the resource you are using is correct?
+
+
+##
 - Create a makefile such that when you run `make` with no arguments, it will:
   - Create `build/` directory if it does not exist
   - Create executables **client** and **server** in `build/`, if needed
@@ -51,10 +64,19 @@
 - Answer any `#Questions` as a comment
 - Commit and push your changes to git
 - Each commit should be responding to a single task or question
+#
 - Why is it important to keep your commit to a single task or question?
+
+Ans. It helps in atomising the changes and creating pull requests for each and merging in large codebases, where you might not need to include all of the many changes in a simgle commit
+#
 - Is it better to have a lot of very small commits, or one big commit when 
   everything is working?
+
+Ans. Even though everything is working, it is good practice to create many commits to keep track of changes and revert back to any.
+#
 - What are the most important commands to know in git?
+
+Ans. add, commit, pull, fetch, push
 
 ## Introduction to Sockets
 
