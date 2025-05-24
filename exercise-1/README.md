@@ -167,7 +167,7 @@ Ans. Replacing sockaddr_in with sockaddr_in6, Changing address family to AF_INET
 #
 - **Bonus**: How do you change the client code to connect by hostname instead of IP address?
 
-Ans. 
+Ans. Using getaddrinfo() to resolve hostname to address and subsequent required changes and kServerAddress contains the hostname like "ip-172-31-25-255"
 #
 ## Introduction to Memory Management
 
@@ -221,11 +221,29 @@ Ans. By accessing it through the terminal in the IDE itself.
 
 - What is the most authoritative source of information about `socket()`
   from `<sys/socket.h>`?
+  
+  Ans. man 2 socket
+#
 - What is the most authoritative source of information about the TCP and IP
   protocols?
+
+  Ans. 
+  - IPv4 - https://www.rfc-editor.org/info/rfc791
+  - IPv6 - https://www.rfc-editor.org/info/rfc8200
+  - TCP - https://datatracker.ietf.org/doc/html/rfc9293
+# 
 - What is the most authoritative source of information about the C++
   programming language?
-- What information can you find about using Markdown when structuring prompts 
-  to LLMs?
+Ans. cppreference.com, also https://isocpp.org/std/the-standard
+#
+- What information can you find about using Markdown when structuring prompts to LLMs?
+
+Ans. LLMs like ChatGPT understand and render Markdown in outputs — but don’t interpret it semantically in input. Using Markdown helps organize your prompts clearly for readability.
+#
 - What is the difference between LLM and AI?
+
+Ans. An LLM (Large Language Model) is	a subset of AI, specifically a deep learning model trained on large amounts of dataset to generate and understand language. Example: GPT-4, whereas AI is a broad field that includes LLMs, but also covers game-playing agents, vision, and more.
+#
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
+
+Ans. It is correct to say "an LLM" because the acronym LLM starts with a vowel sound "el-" hence the article used is "an".
