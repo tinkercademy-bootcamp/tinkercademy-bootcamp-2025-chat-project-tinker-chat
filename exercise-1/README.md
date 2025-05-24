@@ -158,10 +158,16 @@ unistd.h brings read, write, close POSIX system calls
 Ans. By pressing Ctrl + clicking on any part of code with ms-vscode cpptools extension enabled take sto teh respective header file pointing out where the struct or function comes from
 # 
 - How do you change the code so that you are sending messages to servers other than localhost?
+
+Ans. chamging the kServerAddress in the tcp_echo_client.cc and mkaing sure that port is chosen such that the firewall doesn't block it
 #
 - How do you change the code to send to a IPv6 address instead of IPv4?
+
+Ans. Replacing sockaddr_in with sockaddr_in6, Changing address family to AF_INET6 and then use inet_pton(AF_INET6, ...) instead of inet_pton(AF_INET, ...)
 #
 - **Bonus**: How do you change the client code to connect by hostname instead of IP address?
+
+Ans. 
 #
 ## Introduction to Memory Management
 
