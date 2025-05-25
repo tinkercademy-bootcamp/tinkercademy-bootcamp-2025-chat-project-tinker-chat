@@ -100,7 +100,7 @@ install and test are nice to have
 - Read through the code in `src/`
     - Done!
 - Answer any `#Questions` as a comment
-    - TODO
+    - Done!
 - Commit and push your changes to git
     - Done!
 - Each commit should be responding to a single task or question
@@ -166,15 +166,17 @@ user@ip-172-31-25-35:~/chat-project-manogyasingh/exercise-1/src$ g++ tcp_echo_se
 
 ## Improving Interactions with LLMs
 
-- What is the most authoritative source of information about `socket()`
-  from `<sys/socket.h>`?
-- What is the most authoritative source of information about the TCP and IP
-  protocols?
+- What is the most authoritative source of information about `socket()` from `<sys/socket.h>`?
+   - The POSIX Standard
+- What is the most authoritative source of information about the TCP and IP protocols?
+  - The Request for Comments Editor (RFC) of Internet Engineering Task Force (IETF)
 - What is the most authoritative source of information about the C++
   programming language?
+   - The International Organization for Standardization (ISO)
 - What information can you find about using Markdown when structuring prompts to LLMs?
+   - LLM training data contains a lot of markdown and so they've learned to use it effectively. One can mark section headings and subheadings with # or ## and put code or literals in backticks to strcutre the prompt better. can also try bolding emphatic parts with `**` 
 
 - What is the difference between LLM and AI?
-AI refers to all forms of systems to have computer make decisions (or content)
+  - AI refers to all forms of systems to have computer make decisions (or content)
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
-"an" LLM because it starts with an "el" sound
+  - "an" LLM because it starts with an "el" sound
