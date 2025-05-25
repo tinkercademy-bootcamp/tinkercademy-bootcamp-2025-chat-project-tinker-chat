@@ -54,9 +54,9 @@
 - Create a Makefile that will speed up the process.
   - Done!
 - [Quickstart tutorial to make](https://makefiletutorial.com/) - Learn make fundamentals with practical examples and common patterns.
-  - Read enough to move forward, will read more later // TODO  
+  - Done!
 - How else can you learn about make?
-  - so ther resource above is pretty useful. the gnu docs are also good for reference: https://www.gnu.org/software/make/manual/
+  - so the resource above is pretty useful. the GNU docs are also good for reference: https://www.gnu.org/software/make/manual/
 - How can you tell if the resource you are using is correct?
   - reddit is usually a good place to find out if a resource is legit
 - Create a makefile such that when you run `make` with no arguments, it will:
@@ -66,10 +66,34 @@
     - specify `requirements`
   - Change your Makefile such that `make clean` will remove `build/` and all its contents.
     - Done!
-- What are the most important command line arguments to learn for make? // TODO
-- What are the most important directives to learn about in Makefile? // TODO
-- What are the most important commands to implement in your Makefile? // TODO
-- Which ones are essential, which ones are nice to haves? // TODO
+- What are the most important command line arguments to learn for make?
+```
+target						specifies what to build
+-f       					choose custom file as makefile
+-n or --just-print			just print the commands instead of actually executing
+-s or --silent				no prints
+-q or --question							check whether target is upto date
+-i or --ignore-errors		ignore all errors in the command
+```
+- What are the most important directives to learn about in Makefile?
+```
+include <file> tells make to read another makefile before continuing
+.PHONY	tells make to not treat the target as a file, useful for, for example, clean or other commands which should be executed everytime they're called instead of first checking if a certain file exists
+feq, ifneq, ifdef, ifndef, else, endif are similar to C++'s preprocessor directives
+```
+- What are the most important commands to implement in your Makefile?
+```
+all, compile everything
+component specific compile commands
+clean, remove all built files
+install, which will copy the compiled result to something like /bin/ 
+test, it's funcntion varies
+```
+- Which ones are essential, which ones are nice to haves?
+```
+all, clean, component wise compile are essential
+install and test are nice to have
+```
 
 ## Learn Basics of Git
 
@@ -78,7 +102,7 @@
 - Answer any `#Questions` as a comment
     - TODO
 - Commit and push your changes to git
-    - TODO
+    - Done!
 - Each commit should be responding to a single task or question
 - Why is it important to keep your commit to a single task or question?
   - its like the single responsibility principle applied to git. makes it easier to understand what each commit is about and also to trace faults later
