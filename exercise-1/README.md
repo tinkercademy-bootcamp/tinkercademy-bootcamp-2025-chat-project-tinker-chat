@@ -177,6 +177,6 @@ user@ip-172-31-25-35:~/chat-project-manogyasingh/exercise-1/src$ g++ tcp_echo_se
    - LLM training data contains a lot of markdown and so they've learned to use it effectively. One can mark section headings and subheadings with # or ## and put code or literals in backticks to strcutre the prompt better. can also try bolding emphatic parts with `**` 
 
 - What is the difference between LLM and AI?
-  - AI refers to all forms of systems to have computer make decisions (or content)
+  - AI refers to all forms of systems to have computer make decisions (or content) but LLM is a primarily text based generative AI model tuned to converse in natural language.
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
   - "an" LLM because it starts with an "el" sound
