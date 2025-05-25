@@ -148,8 +148,7 @@ user@ip-172-31-25-35:~/chat-project-manogyasingh/exercise-1/src$ g++ tcp_echo_se
   protocols?
 - What is the most authoritative source of information about the C++
   programming language?
-- What information can you find about using Markdown when structuring prompts 
-  to LLMs?
+- What information can you find about using Markdown when structuring prompts to LLMs?
 
 - What is the difference between LLM and AI?
 AI refers to all forms of systems to have computer make decisions (or content)
