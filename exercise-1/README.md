@@ -36,7 +36,7 @@
 - How else can you learn about make? 
   - Ask ChatGPT any doubts or look up some other websites
 - How can you tell if the resource you are using is correct?
-  - ???
+  - confirm with some other resources, generally standard sites are correct
 - Create a makefile such that when you run `make` with no arguments, it will:
   - Create `build/` directory if it does not exist
   - Create executables **client** and **server** in `build/`, if needed
@@ -49,7 +49,7 @@
 - What are the most important directives to learn about in Makefile?
   - targets, variables, pattern rules
 - What are the most important commands to implement in your Makefile?
-  - g++, 
+  - use commands like g++, mkdir, rm to implement targets like server, client, all, clean
 - Which ones are essential, which ones are nice to haves?
 
 ## Learn Basics of Git
@@ -76,12 +76,12 @@
 - What do all these headers do? 
   - they let us use the already written code in these header files
 - How do you find out which part of the below code comes from which header?
-  - right click and select from dropdown
+  - ctrl click
 - How do you change the code so that you are sending messages to servers
   other than localhost? 
   - change the kserveraddress
 - How do you change the code to send to a IPv6 address instead of IPv4?
-  - we need to change the family to AF_INET6, use the struct sockaddr_in6, change the address variable according to IPv6
+  - we need to change the family to AF_INET6, use the struct sockaddr_in6, change the address variable according to IPv6, do things like sin6_addr, sin6_family, sin6_port
 - **Bonus**: How do you change the client code to connect by hostname instead
   of IP address?
   - We use function getaddrinfo for DNS resolution
@@ -94,13 +94,19 @@
   `if (connect(my_sock, (sockaddr *)&address, sizeof(address)) < 0) {`
   - tries to connect to server at given address using our socket and checks if connection was successful by seeing if it is less than 0
 - What is the difference between a pointer and a reference?
-  - You have to deference a pointer, dont have to dereference a reference explicitly
-- When is it better to use a pointer? can be null
-- When is it better to use a reference? cant be null
+  - You have to deference a pointer, dont have to dereference a reference explicitly and pointer takes some storage, and stores the adress of the variable, reference just is an alias of the variable, pointer can be null, reference cant be null, pointers have arithmetic, references dont, pointers can be reassigned.
+- When is it better to use a pointer?
+  - In use cases where we need to pass null values, or we need to use pointer arithmetic, or we need reassignment, for example making data structures like linked list.
+- When is it better to use a reference?
+  - In use cases like passing in function or for return values of funtions.
 - What is the difference between `std::string` and a C-style string?
+  - std::string is a class which treats strings like objects, C-style string is a character array.
 - What type is a C-style string?
+  - Character array
 - What happens when you iterate a pointer?
+  - 
 - What are the most important safety tips to know when using pointers?
+  - Never deference a null pointer, dont have dangling pointers.
 
 ## Learn Basics of Creating a C++ Project in Your IDE
 
