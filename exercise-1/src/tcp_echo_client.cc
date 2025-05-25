@@ -8,6 +8,11 @@
 
 int main() {
   // #Question - are these the same type?
+  /*
+  Answer: Nope! On the left we have a std::string and on the right we have a cstring (char[N]) with 17 chars and a \0 null character for termination
+
+  This statement won't produce an error because there's implicit conversion.
+  */
   std::string message = "Hello from client";
   const int kPort = 8080;
   const std::string kServerAddress = "127.0.0.1";
