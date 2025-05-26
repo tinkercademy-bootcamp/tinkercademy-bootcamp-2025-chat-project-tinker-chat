@@ -68,15 +68,33 @@ Ans. The HTTPS over TLS spec can be found here: https://datatracker.ietf.org/doc
 ## Introduction to C++ and Sockets Programming
 
 - Read the code in `src/`
+#
 - Are there any bugs in this code? 
+
+Ans. No
+#
 - What can you do to identify if there are bugs in the code?
+
+Ans. Tools like gdb, valgrind, IDE debugger or manual review can be used.
 
 ## Refactoring: Extract Function
 
 - What is different in this code compared to exercise-1?
+
+Ans. This code is modular with extracted functions for each responsibility than exercise-1 code.
+#
 - Is this code better or worse than exercise-1?
+
+Ans. This is more better than exercise-1 as it is more readable and maintainable as testing can be more orthogonal. 
+#
 - What are the tradeoffs compared to exercise-1?
+
+Ans. The only tradeoff I think this has slightly more code.
+#
 - Are you able to spot any mistakes or inconsistencies in the changes?
+
+Ans. I think the error messages can be more richer.
+#
   
 ## Thinking About Performance
 
