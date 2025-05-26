@@ -147,4 +147,9 @@ Ans. Use step-over, step-into, next, continue commands or UI options.
 ### Memory Management and Debug Mode in Your IDE
 
 - How do you see the memory layout of a `std::string` from your IDE debug mode?
+
+Ans. Set a breakpoint where the std::string is in scope. After starting debugging, you can see the memory layout by expanding the variable in the watch window.
+#
 - How do you see the memory layout of a struct from your IDE debug mode?
+
+Ans. Similarly, set a breakpoint where the struct instance is in scope then use the Watch window or Locals window to expand the struct.
