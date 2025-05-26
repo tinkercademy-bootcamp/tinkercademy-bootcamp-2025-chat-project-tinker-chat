@@ -48,22 +48,28 @@
 
 - Read the code in `src/`
 - Are there any bugs in this code? 
+  - The code seems to have the same functionality as the code from exercise-1 and i didnt find any bugs.
 - What can you do to identify if there are bugs in the code?
+  - We can run and make unit tests for each of the functions, blackbox testing can be done, we can also use tools like gdb or IDE debugger for debugging.
 
 ## Refactoring: Extract Function
 
 - What is different in this code compared to exercise-1?
-  - all the code is abstracted into functions and thode functions are called inside main
+  - all the code is abstracted into functions and those functions are called inside main loop
 - Is this code better or worse than exercise-1?
-  - This code is better since it improves the 
+  - This code is better since it improves the readability and make it easier to re-use and expand upon and find bugs in specific functions.
 - What are the tradeoffs compared to exercise-1?
+  - The tradeoffs are that the code is much more verbose, and also to track the execution of the code one has to jump between functions, which might make it harder.
 - Are you able to spot any mistakes or inconsistencies in the changes?
-  
+  - No, I am not able to spot any mistakes or inconsistencies in the changes.
 ## Thinking About Performance
 
 - Does writing code this way have any impact on performance?
+  - For a simple program like this, i dont think so, since there are very less function calls and other parts of the code have much more latency and also compiler can optimize smaller functions to make them inlined.
 - What do we mean when we say performance?
+  - Performance can be measured in terms of how much space and time a program is taking.
 - How do we measure performance in a program?
+  - It can be measured by measuring the time taken by a program, see how much of the system's resources are utilized and to check against some industry benchmarks for performance.
 
 ## Play with Git
 
