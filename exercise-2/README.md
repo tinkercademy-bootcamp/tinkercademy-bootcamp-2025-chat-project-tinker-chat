@@ -11,8 +11,11 @@
 - https://man7.org/linux/man-pages/man7/socket.7.html - Socket interface 
   overview and protocol families
 - Or type `man 7 socket` in terminal
+#
 - When would you want to use a `SOCK_RAW` stream?
 
+Ans. According to socket man page, SOCK_RAW is used when we need direct access to internal network protocol and interfaces. It is basically there to allow you to bypass some of the way that your computer handles TCP/IP. Rather than going through the normal layers of encapsulation/decapsulation that the TCP/IP stack on the kernel does,
+#
 ### TCP and IP Protocols
 - [IPv4](https://www.rfc-editor.org/info/rfc791) - Internet Protocol 
   specification defining packet structure and routing
