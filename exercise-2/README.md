@@ -53,7 +53,9 @@
 ## Refactoring: Extract Function
 
 - What is different in this code compared to exercise-1?
+  - all the code is abstracted into functions and thode functions are called inside main
 - Is this code better or worse than exercise-1?
+  - This code is better since it improves the 
 - What are the tradeoffs compared to exercise-1?
 - Are you able to spot any mistakes or inconsistencies in the changes?
   
