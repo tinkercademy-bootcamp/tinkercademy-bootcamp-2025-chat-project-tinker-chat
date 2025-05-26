@@ -28,16 +28,42 @@ Ans. According to socket man page, SOCK_RAW is used when we need direct access t
 - [C++23 ISO standard draft](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf) - 
   Working draft of the C++ language specification
 - Is the above the official C++23 spec? 
+
+Ans. No, it is still a working draft. 
+#
 - Where is the official C++23 spec?
+
+Ans, There's this iso.org page: https://www.iso.org/standard/83626.html, where you can purchase it form.
+#
 - Why was this link chosen instead?
+
+Ans. Since it is freely accessible to all without purchasing.
+#
 - Is this a helpful reference for learning C++?
+
+Ans. This is lot more technical, so recommended for experienced C++ learners,
+#
 - Can the various implementations of C++ compilers be different from the
   C++ standard?
+
+Ans. Yes, they may interpret some behaviours differently.
+#
 - What are the most widely used and most significant C++ compilers?
+
+Ans. GCC, Clang
+#
 - Where is the equivalent spec for C++26?
 
+Ans. There is this ongoing latex document: https://github.com/cplusplus/draft, that can be referred to find the in-progress C++26 specs.
+#
 - Where do you find the spec for the HTTP protocol?
+
+Ans. The RFS 9110 documentation: https://www.rfc-editor.org/rfc/rfc9110.html 
+#
 - What about HTTPS? Is there a spec for that protocol?
+
+Ans. The HTTPS over TLS spec can be found here: https://datatracker.ietf.org/doc/html/rfc2818
+#
 
 ## Introduction to C++ and Sockets Programming
 
