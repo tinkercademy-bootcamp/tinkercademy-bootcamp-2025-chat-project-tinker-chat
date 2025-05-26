@@ -80,17 +80,24 @@
 - Make sure to commit each change as small and self-contained commit
 - This will make it easier to revert your code if you need to
 - What is `git tag`? How is `git tag` different from `git branch`?
+  - A git tag is an object refering a specific commit within the project, git branch is used to create a differnt line of work and you can add commits to it, git tag just refers to a particular commit, no commits can be added, you can just see how the code looked like at a particular tag.
 - How can you use `git tag` and `git branch` to make programming easier and
   more fun?
-
+  - tags can be used to mark major changes, or different versions or milestones achieved in the code, whereas git branch can be used for freely experimenting with code without having to worry about the existing code.
 ## Learn Basics of Debugging in Your IDE
 
 - How do you enable debug mode in your IDE?
+  - Select Start debugging from the run tab.
 - In debug mode, how do you add a watch?
+  - Go to left pane, and find the watch panel. Click on plus in the watch section and enter the variable name.
 - In debug mode, how do you add a breakpoint?
+  - to add a breakpoint, just click on the editor margin to the left of any line.
 - In debug mode, how do you step through code?
+  - press F10 to step over code and F11 to step into code.
 
 ### Memory Management and Debug Mode in Your IDE
 
 - How do you see the memory layout of a `std::string` from your IDE debug mode?
+  - Open command pallete and search for debug: open memory view and enter the address of the std::string variable.
 - How do you see the memory layout of a struct from your IDE debug mode?
+  - You can open the memory viewer at the variable's address by hovering over it in the variables pane and selecting the view memory option. The way for std::string can also work, this is an alternative.
