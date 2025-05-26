@@ -104,24 +104,30 @@
 - What type is a C-style string?
   - Character array
 - What happens when you iterate a pointer?
-  - 
+  - the address stored in the pointer is changed by the appropriate number of bytes depening on type of object being pointed to, like 4 for int, 1 for char, etc.
 - What are the most important safety tips to know when using pointers?
   - Never deference a null pointer, dont have dangling pointers.
 
 ## Learn Basics of Creating a C++ Project in Your IDE
 
 - How do you compile and run your project in your IDE?
+  - Just by opening a terminal in the IDE and running the commands in the terminal
 
 ## Improving Interactions with LLMs
 
 - What is the most authoritative source of information about `socket()`
   from `<sys/socket.h>`?
+  - The man command
 - What is the most authoritative source of information about the TCP and IP
   protocols?
-  - IETF, rfc
+  - The RFC documents published by the IETF
 - What is the most authoritative source of information about the C++
   programming language?
+  - The official C++ ISO standards, the book The C++ programming language by its creator, cppreference.com
 - What information can you find about using Markdown when structuring prompts 
   to LLMs?
+  - I found out that markdown helps improve the LLM efficiency because of reasons like most of the LLMs are trained heavily using markdown, also it helps structure the prompt better using sections, etc.
 - What is the difference between LLM and AI?
+  - LLMs are a small subset of AI focussing on generating and understaning human language, whereas AI is a broader field which is about performing all tasks human perform artificially.
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
+  - An LLM because when we say LLM there is an 'el' sound which starts with an e.
