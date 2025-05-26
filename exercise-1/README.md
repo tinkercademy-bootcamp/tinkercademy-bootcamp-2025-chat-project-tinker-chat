@@ -238,7 +238,8 @@ Ans. cppreference.com, also https://isocpp.org/std/the-standard
 #
 - What information can you find about using Markdown when structuring prompts to LLMs?
 
-Ans. LLMs like ChatGPT understand and render Markdown in outputs — but don’t interpret it semantically in input. Using Markdown helps organize your prompts clearly for readability.
+Ans. I find multiple sources stating that using Markdown helps
+increase the performance variation upto 40% but some sources also state that markdown inputs provide nothing more than readable inputs.
 #
 - What is the difference between LLM and AI?
 
