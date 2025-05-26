@@ -99,8 +99,17 @@ Ans. I think the error messages can be more richer.
 ## Thinking About Performance
 
 - Does writing code this way have any impact on performance?
+
+Ans. Very negligible cost for abstarction 
+#
 - What do we mean when we say performance?
+
+Ans. Speed and memory usage
+#
 - How do we measure performance in a program?
+
+Ans. By Logging start and end times, benchmarks, and using tools like perf, valgrind etc.
+#
 
 ## Play with Git
 
@@ -110,17 +119,31 @@ Ans. I think the error messages can be more richer.
   readable.
 - Make sure to commit each change as small and self-contained commit
 - This will make it easier to revert your code if you need to
+#
 - What is `git tag`? How is `git tag` different from `git branch`?
+
+Ans. A: A tag is a fixed label like v2.11.0 on a commit whereas a branch is a moving pointer to a commit.
+#
 - How can you use `git tag` and `git branch` to make programming easier and
   more fun?
 
+Ans. Tags can be used in releasing versions while branches allow experimentation and parallel development
+#
 ## Learn Basics of Debugging in Your IDE
 
 - How do you enable debug mode in your IDE?
-- In debug mode, how do you add a watch?
-- In debug mode, how do you add a breakpoint?
-- In debug mode, how do you step through code?
 
+Ans. By building the project with -g flag.
+#
+- In debug mode, how do you add a watch?
+
+Ans. By right-clicking on a variable and selecting "add watch" in the watch window.
+#
+- In debug mode, how do you add a breakpoint?
+Ans. Click beside line number or use break command in GDB
+#
+- In debug mode, how do you step through code?
+Ans. Use step-over, step-into, next, continue commands or UI options.
 ### Memory Management and Debug Mode in Your IDE
 
 - How do you see the memory layout of a `std::string` from your IDE debug mode?
