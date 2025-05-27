@@ -81,6 +81,20 @@
   everything is working?
   - It's better to have a lot of very small commits as each commit will represent a single logical change which will help in identifying where the bug was introduced and if working on a team project, it will help the other person to understand what you've done. 
 - What are the most important commands to know in git?
+  - `git init` – Initialize a new git repository.
+  - `git clone <repo-url>` – Clone an existing repository.
+  - `git status` – Show the status of changes as untracked, modified, or staged.
+  - `git add <file>` – Stage changes for commit.
+  - `git commit -m "message"` – Commit staged changes with a message.
+  - `git log` – View commit history.
+  - `git diff` – Show changes between commits, commit and working tree, etc.
+  - `git branch` – List, create, or delete branches.
+  - `git checkout <branch>` – Switch branches or restore files.
+  - `git merge <branch>` – Merge another branch into the current branch.
+  - `git pull` – Fetch and merge changes from a remote repository.
+  - `git push` – Push local commits to a remote repository.
+  - `git remote` – Manage set of tracked repositories.
+  - `git reset` – Undo changes by resetting current HEAD to a specified state.
 
 ## Introduction to Sockets
 
