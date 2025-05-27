@@ -19,9 +19,16 @@
   `create_socket()` in [Compiler Explorer](https://godbolt.org) - Interactive 
   tool for exploring how C++ code compiles to assembly
 - What is happening here?
+  - The old `create_socket()` function had fewer assembly instructions and was much more efficient
+  - A copy of the error string had to be allocated on the memory so that it can be passed by value to the function - adds additional time and memory overhead
+  - More #of copies between registers, because registers have to be setup appropriately before making a function call to the `check_error()` function, adds additional time overhead
+  - Unnecessary computations; for eg, the value of `sock < 0` is computed first, and then we are checking if `test == 1` inside the function, which translates to `(sock < 0) == 1`, which is essentially just `sock < 0`; just one comparison with 0 is enough rather than computing `sock < 0` using the right shift operation and checking whether it's equal to 1 inside the `check_error()` function
+  - These inefficienies are barely noticeable when the program is run normally; however, in a setting where every clock cycle matters, this makes a considerable amount of difference in the runtime (the newer version is significantly slower)
 - Can you think of any different approaches to this problem?
-- How can you modify your Makefile to generate assembly code instead of
-  compiled code?
+  - Pass the string by reference to the `check_error()` function
+  - Inline the function
+- How can you modify your Makefile to generate assembly code instead of compiled code?
+  - Compile with `-S` flag
 - **Note**: You can save the generated assembly from Compiler Explorer
 - **Bonus**: Can you view assembly code using your IDE?
 - **Bonus**: How do you see the assembly when you step through each line in
@@ -49,8 +56,8 @@
 
 ## More Thinking About Performance
 
-- After your experiments with Compiler Explorer, do you have any updates for
-  your answers in exercise-2?
+- After your experiments with Compiler Explorer, do you have any updates for your answers in exercise-2?
+  - In my ex.2 answers, I did mention about a slight performance overhead due to modularizing the code; however, I think the overhead could be more significant in a setting where each and every clock cycle matters
 
 ### Bonus: Do Not Watch Now 
 
