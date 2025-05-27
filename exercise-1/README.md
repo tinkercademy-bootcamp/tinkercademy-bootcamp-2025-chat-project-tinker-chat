@@ -136,11 +136,13 @@
   This allows the client to connect to servers using IPv6 addresses.
 - **Bonus**: How do you change the client code to connect by hostname instead
   of IP address?
+  - Create a hostname variable which will store hostname (alternqatively, we can take command line arguments for hostname). Use getaddrinfo() function to get the address using hostname, then proceed the same as IP address.
   
 ## Introduction to Memory Management
 
 - What is happening in line 26 of `tcp-echo-client.cc`? 
   `if (inet_pton(AF_INET, kServerAddress.c_str(), &address.sin_addr) <= 0) {`
+  - This line is converting kServerAddress from text to binary form, and checking if the conversion was successful or not.
 - What is happening in line 31 of `tcp-echo-client.cc`?
   `if (connect(my_sock, (sockaddr *)&address, sizeof(address)) < 0) {`
 - What is the difference between a pointer and a reference?
