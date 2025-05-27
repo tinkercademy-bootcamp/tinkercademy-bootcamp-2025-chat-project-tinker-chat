@@ -159,6 +159,11 @@
 - What happens when you iterate a pointer?
   - When you iterate a pointer, you increment or decrement its value so the memory address that it points to also increments or decrements.
 - What are the most important safety tips to know when using pointers?
+  - Don't dereference a null or a dangling pointer.
+  - Free dynamically allocated memory to prevent memory leaks.
+  - Avoid accessing out-of-bounds memory.
+  - Do not use pointers after freeing the memory.
+  - Always initialize a pointer before using it.
 
 ## Learn Basics of Creating a C++ Project in Your IDE
 
