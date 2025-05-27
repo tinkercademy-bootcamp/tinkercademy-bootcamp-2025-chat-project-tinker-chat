@@ -180,6 +180,7 @@
   - The RFCs (Request for Comments), especially [RFC 791](https://tools.ietf.org/html/rfc791) for IP and [RFC 793](https://tools.ietf.org/html/rfc793) for TCP.
 - What is the most authoritative source of information about the C++
   programming language?
+  - ISO C++ Standard. We can also use [cppreference.com](https://en.cppreference.com/).
 - What information can you find about using Markdown when structuring prompts 
   to LLMs?
 - What is the difference between LLM and AI?
