@@ -117,6 +117,23 @@
   other than localhost?
   - In the tcp_echo_client, chang the kServerAddress  to be the IP address of the server and changing the kPort to 35000 (so that FireWall doesn't block it, other numbers are also valid).
 - How do you change the code to send to a IPv6 address instead of IPv4?
+
+  1. Use `AF_INET6` instead of `AF_INET`:
+    ```cpp
+    int my_sock = socket(AF_INET6, SOCK_STREAM, 0);
+    ```
+
+  2. Use `sockaddr_in6` instead of `sockaddr_in` for the address structure (and `address.sin6_family`, `address.sin6_port` instead of `address.sin_family`, `address.sin_port` respectively):
+    ```cpp
+    sockaddr_in6 address;
+    ```
+    ```cpp
+    address.sin6_family = AF_INET6;
+    address.sin6_port = htons(kPort);
+    ```
+
+  3. Use `inet_pton(AF_INET6, kServerAddress.c_str(), &address.sin6_addr)` to convert the IPv6 address.
+  This allows the client to connect to servers using IPv6 addresses.
 - **Bonus**: How do you change the client code to connect by hostname instead
   of IP address?
   
