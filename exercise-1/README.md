@@ -174,10 +174,13 @@
 
 - What is the most authoritative source of information about `socket()`
   from `<sys/socket.h>`?
-  - `man socket` in terminal.
+  - `man socket` and `man 7 socket` in terminal.
 - What is the most authoritative source of information about the TCP and IP
   protocols?
-  - The RFCs (Request for Comments), especially [RFC 791](https://tools.ietf.org/html/rfc791) for IP and [RFC 793](https://tools.ietf.org/html/rfc793) for TCP.
+  - [RFC 791](https://www.rfc-editor.org/info/rfc791) for IPv4.
+  - [RFC 8200](https://www.rfc-editor.org/info/rfc8200) for IPv6.
+  - [RFC 9293](https://datatracker.ietf.org/doc/html/rfc9293) for TCP.
+
 - What is the most authoritative source of information about the C++
   programming language?
   - ISO C++ Standard. We can also use [cppreference.com](https://en.cppreference.com/).
