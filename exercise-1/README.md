@@ -174,7 +174,8 @@
 
 - What is the most authoritative source of information about `socket()`
   from `<sys/socket.h>`?
-  - `man socket` and `man 7 socket` in terminal.
+  - `man socket` for system call reference and `man 7 socket` for socket interface 
+  overview and protocol families in terminal.
 - What is the most authoritative source of information about the TCP and IP
   protocols?
   - [RFC 791](https://www.rfc-editor.org/info/rfc791) for IPv4.
