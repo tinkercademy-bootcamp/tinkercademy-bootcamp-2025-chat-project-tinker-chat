@@ -187,3 +187,4 @@
 - What is the difference between LLM and AI?
   - LLM is a type of AI that is trained to understand human-like language.
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
+  - It will be "an LLM" as the sound matters, not spelling.
