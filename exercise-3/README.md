@@ -85,8 +85,15 @@ Ans. We can use macros, templates to reduce repetition.
 #
 - How can you modify your Makefile to generate assembly code instead of
   compiled code?
+
+Ans. Adding this to the make creates a file tcp_echo_client.s correspondingly.
+``` 
+  %.s: %.cc
+	$(CXX) $(CXX_FLAGS) -S $< -o $@
+```
 - **Note**: You can save the generated assembly from Compiler Explorer
 - **Bonus**: Can you view assembly code using your IDE?
+
 - **Bonus**: How do you see the assembly when you step through each line in
   debugging mode from your IDE?
 - [x86 assembly reference](http://ref.x86asm.net/) - Comprehensive reference 
