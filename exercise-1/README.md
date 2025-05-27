@@ -155,6 +155,7 @@
 - What is the difference between `std::string` and a C-style string?
   - `std::string` is a C++ class which supports dynamic resizing. A c-style string is a pointer to a character array terminated by a null character (`'\0'`).
 - What type is a C-style string?
+  - `char*`
 - What happens when you iterate a pointer?
 - What are the most important safety tips to know when using pointers?
 
