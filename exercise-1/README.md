@@ -168,6 +168,7 @@
 ## Learn Basics of Creating a C++ Project in Your IDE
 
 - How do you compile and run your project in your IDE?
+  - By running `make` which includes `g++` commands in the terminal, then running `./filename`.
 
 ## Improving Interactions with LLMs
 
