@@ -104,7 +104,15 @@
   `"hello message from the command prompt"` to the server
 - Commit your changes into git
 - What do all these headers do?
+  - `<iostream>` is for input/output stream objects like `std::cout`.
+  - `<cstring>` provides functions for C-style string manipulation.
+  - `<sys/socket.h>` provides definitions for sockets.
+  - `<arpa/inet.h>` provides functions for manipulating IP addresses.
+  - `<unistd.h>` provides access to POSIX operating system API, such as `close()`.
+  - `<netinet/in.h>` provides constants and structures for internet domain addresses.
+  - `<string>` provides the C++ `std::string` class.
 - How do you find out which part of the below code comes from which header?
+  - We can use Ctrl + Click to find out the header it came from.
 - How do you change the code so that you are sending messages to servers
   other than localhost?
 - How do you change the code to send to a IPv6 address instead of IPv4?
