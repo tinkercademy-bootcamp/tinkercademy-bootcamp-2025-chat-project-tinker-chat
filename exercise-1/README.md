@@ -183,5 +183,6 @@
   - ISO C++ Standard. We can also use [cppreference.com](https://en.cppreference.com/).
 - What information can you find about using Markdown when structuring prompts 
   to LLMs?
+  - Markdown helps format code and prompts better so that LLMs can parse it better and hence, give better results.
 - What is the difference between LLM and AI?
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
