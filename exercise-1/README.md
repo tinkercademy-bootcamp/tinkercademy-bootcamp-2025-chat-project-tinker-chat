@@ -38,17 +38,34 @@
 - [Quickstart tutorial to make](https://makefiletutorial.com/) - Learn make 
   fundamentals with practical examples and common patterns.
 - How else can you learn about make?
+  - Using `man make` or StackOverflow.
 - How can you tell if the resource you are using is correct?
+  - The manual is in itself a right resource, as it is an official document. For StackOverflow, or any other blog, we can confirm from many resoiurces or compare it with the manual, or test it out by making our own Makefile. 
 - Create a makefile such that when you run `make` with no arguments, it will:
   - Create `build/` directory if it does not exist
   - Create executables **client** and **server** in `build/`, if needed
   - How does make know when it needs to rebuild the executables?
+    - We can add dependency files, and whenever those files change, it need to rebuild the executables.
   - Change your Makefile such that `make clean` will remove `build/` and all
     its contents
 - What are the most important command line arguments to learn for make?
+  - make runs the first target (or all if it is there)
+  - make target runs that target
+  - `make -f <filename>` runs a different Makefile.
+  - `make -B` force rebuilds all the targets.
+  - `make -C <dir>` runs make from another directory.
+  - `make -n` prints the commands that would be executed.
+  - `make -t` touche files instead of running their commands.
 - What are the most important directives to learn about in Makefile?
+  - target: dependencies (Defines a build rule so that target is rebuilt when one of the dependencies change)
+  - all: (default target)
+  - clean: (deletes generated files)
+  - PHONY (declares targets that are not files)
 - What are the most important commands to implement in your Makefile?
+  - `g++`, `mkdir -p`, `echo` are the most used and important commands fo make.
 - Which ones are essential, which ones are nice to haves?
+  - Essential commands: `g++` (for compiling source files), `mkdir -p` (to ensure the build directory exists), and `rm -rf` (for cleaning up build artifacts) are necessary for basic build and clean operations.
+  - Nice to have: `echo` (for informative messages), and additional shell commands for more advanced automation or user feedback, but they are not strictly required for a functional Makefile.
 
 ## Learn Basics of Git
 
