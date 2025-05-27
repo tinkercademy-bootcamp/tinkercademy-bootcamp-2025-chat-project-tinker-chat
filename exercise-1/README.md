@@ -145,6 +145,7 @@
   - This line is converting kServerAddress from text to binary form, and checking if the conversion was successful or not.
 - What is happening in line 31 of `tcp-echo-client.cc`?
   `if (connect(my_sock, (sockaddr *)&address, sizeof(address)) < 0) {`
+  - It connects the my_sock socket to the address.
 - What is the difference between a pointer and a reference?
 - When is it better to use a pointer?
 - When is it better to use a reference?
