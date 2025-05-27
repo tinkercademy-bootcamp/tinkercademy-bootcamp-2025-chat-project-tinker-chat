@@ -177,6 +177,7 @@
   - `man socket` in terminal.
 - What is the most authoritative source of information about the TCP and IP
   protocols?
+  - The RFCs (Request for Comments), especially [RFC 791](https://tools.ietf.org/html/rfc791) for IP and [RFC 793](https://tools.ietf.org/html/rfc793) for TCP.
 - What is the most authoritative source of information about the C++
   programming language?
 - What information can you find about using Markdown when structuring prompts 
