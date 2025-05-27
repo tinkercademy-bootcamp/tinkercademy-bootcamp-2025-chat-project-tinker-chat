@@ -14,7 +14,10 @@
 Ans. It simplifies repetitive error handling i.e., DRY(Don't Repeat Yourself) principle and can change the code at once and for all.
 #
 - Are there any costs to writing code like this?
+
+Ans. There is slight overhead from additional function calls.
 - Apply `check_error` to all the code in `src/`
+
 
 ## Introduction to Compiler Explorer
 
