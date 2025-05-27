@@ -157,6 +157,7 @@
 - What type is a C-style string?
   - `char*`
 - What happens when you iterate a pointer?
+  - When you iterate a pointer, you increment or decrement its value so the memory address that it points to also increments or decrements.
 - What are the most important safety tips to know when using pointers?
 
 ## Learn Basics of Creating a C++ Project in Your IDE
