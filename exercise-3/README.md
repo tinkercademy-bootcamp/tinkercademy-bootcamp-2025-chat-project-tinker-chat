@@ -16,6 +16,7 @@ Ans. It simplifies repetitive error handling i.e., DRY(Don't Repeat Yourself) pr
 - Are there any costs to writing code like this?
 
 Ans. There is slight overhead from additional function calls.
+#
 - Apply `check_error` to all the code in `src/`
 
 
@@ -24,8 +25,64 @@ Ans. There is slight overhead from additional function calls.
 - Try out the old `create_socket()` and the new `check_error()` and 
   `create_socket()` in [Compiler Explorer](https://godbolt.org) - Interactive 
   tool for exploring how C++ code compiles to assembly
+  #
 - What is happening here?
+
+Ans. Compiler Explorer shows how high-level C++ code is compiled to assembly. 
+Then came to a conclusion that this exercise-3 version is less-optimised than old create_socket version and the reasoning is as follows.
+  1. Fewer Instructions
+The older version produced significantly fewer assembly instructions.
+There should be no calls to constructors/destructors like as in latest version:
+```
+std::__cxx11::basic_string<...>::basic_string
+std::__cxx11::basic_string<...>::~basic_string
+std::__new_allocator<...>::~__new_allocator
+```
+  2. Smaller Stack Frame
+In the older version, we see:
+```
+sub rsp, 16
+```
+vs
+```
+sub rsp, 72
+```
+in the first. This shows how much stack space the function reserves — a smaller number = better.
+
+  3. No Function Indirection
+In the latest version, there's a call to a helper function:
+```
+call check_error
+```
+along with overhead for handling the string error message.
+
+In the older version, the logic is inlined and direct:
+```
+cmp eax, 0
+js .Lerror
+mov esi, OFFSET FLAT:.LC0
+mov edi, OFFSET FLAT:std::cerr
+call operator<<
+call exit
+```
+  
+  4. Absence of Exception Handling
+The latest version contains code like:
+```
+call _Unwind_Resume
+```
+This is completely absent in the older version, further showing it’s optimized.
+
+  5. No Heap Allocation
+std::string usually requires dynamic memory.
+
+The older version avoids it entirely by using const char*.
+
+#
 - Can you think of any different approaches to this problem?
+
+Ans. We can use macros, templates to reduce repetition.
+#
 - How can you modify your Makefile to generate assembly code instead of
   compiled code?
 - **Note**: You can save the generated assembly from Compiler Explorer
