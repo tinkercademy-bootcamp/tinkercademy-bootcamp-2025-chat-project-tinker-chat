@@ -5,10 +5,12 @@
 ## Re-using Code
 
 - Read the code in `src/tcp_echo_client.cc`
-- A new function `check_error()` has been created and `create_socket()` from 
-  exercise-2 has been refactored to make use of it
+- A new function `check_error()` has been created and `create_socket()` from exercise-2 has been refactored to make use of it
 - What are the benefits of writing code in this way?
+  - Makes the code more readable, because all error checks are in the format `<condition, error message>`
+  - Avoids clutter in the main modules of the program due to a lot of error messages
 - Are there any costs to writing code like this?
+  - Slightly higher performance overhead, due to copying of the error message from a C-style string literal into an `std::string` every time the function is called
 - Apply `check_error` to all the code in `src/`
 
 ## Introduction to Compiler Explorer
