@@ -149,6 +149,7 @@
 - What is the difference between a pointer and a reference?
   - A pointer is a different variable (at different memory location) pointing to a memory location and it can be reassigned to point to different objects or set to `nullptr`, whereas reference is an alias for a variable and it has the same memory address as the variable it refers to. It must be initialized when declared, cannot be reassigned, and always refer to a valid object.
 - When is it better to use a pointer?
+  - When we may want to refer to `nullptr` or we may reassign it.
 - When is it better to use a reference?
 - What is the difference between `std::string` and a C-style string?
 - What type is a C-style string?
