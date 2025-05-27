@@ -151,6 +151,7 @@
 - When is it better to use a pointer?
   - When we may want to refer to `nullptr` or we may reassign it.
 - When is it better to use a reference?
+  - When we want to ensure that a function operates on an existing object and you do not need to allow reassignment or null values. References are preferred for function parameters and return types when you want to avoid copying but guarantee a valid object.
 - What is the difference between `std::string` and a C-style string?
 - What type is a C-style string?
 - What happens when you iterate a pointer?
