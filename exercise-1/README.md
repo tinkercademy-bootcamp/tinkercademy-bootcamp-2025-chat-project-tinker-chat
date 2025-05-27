@@ -115,6 +115,7 @@
   - We can use Ctrl + Click to find out the header it came from.
 - How do you change the code so that you are sending messages to servers
   other than localhost?
+  - In the tcp_echo_client, chang the kServerAddress  to be the IP address of the server and changing the kPort to 35000 (so that FireWall doesn't block it, other numbers are also valid).
 - How do you change the code to send to a IPv6 address instead of IPv4?
 - **Bonus**: How do you change the client code to connect by hostname instead
   of IP address?
