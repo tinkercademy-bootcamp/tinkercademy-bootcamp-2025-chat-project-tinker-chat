@@ -174,6 +174,7 @@
 
 - What is the most authoritative source of information about `socket()`
   from `<sys/socket.h>`?
+  - `man socket` in terminal.
 - What is the most authoritative source of information about the TCP and IP
   protocols?
 - What is the most authoritative source of information about the C++
