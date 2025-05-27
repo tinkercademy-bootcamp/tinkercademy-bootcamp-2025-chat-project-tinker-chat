@@ -185,4 +185,5 @@
   to LLMs?
   - Markdown helps format code and prompts better so that LLMs can parse it better and hence, give better results.
 - What is the difference between LLM and AI?
+  - LLM is a type of AI that is trained to understand human-like language.
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
