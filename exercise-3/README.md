@@ -1,3 +1,4 @@
+-exec info registers
 # Exercise 3
 
 **Update this README with your answers to the questions below.**
@@ -94,8 +95,17 @@ Ans. Adding this to the make creates a file tcp_echo_client.s correspondingly.
 - **Note**: You can save the generated assembly from Compiler Explorer
 - **Bonus**: Can you view assembly code using your IDE?
 
+Ans. adding the show disassembly in the launch.json then running this command on debug console after pausing the debugging shows the entire assembly.
+```
+-exec disassemble
+``` 
 - **Bonus**: How do you see the assembly when you step through each line in
   debugging mode from your IDE?
+
+Ans. After doing the above, enter into a breakpoint and run the below commandd to get the specific breakpoint's assembly or follow it up by the function name to view the assembly code of the function
+```
+-exec disassemble /m
+``` 
 - [x86 assembly reference](http://ref.x86asm.net/) - Comprehensive reference 
   for x86 assembly language instructions and syntax
 
