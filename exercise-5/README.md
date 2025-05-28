@@ -45,8 +45,13 @@ Ans. Using named namespaces is preferred over unnamed ones as it has multiple ad
 
 - How do you judge what makes a particular choice of namespace and directory
   structure? 
+
+Ans. I judge based on clarity, scalability, how well it reflects the problem domain, and how easy it is to navigate.
+#
 - How do you judge what makes a good naming convention or programming style?
 
+Ans. I judge based on consistency, readability, and more importantly community standards we specify before hand.
+#
 ## "Senses" in Programming
 
 - Have you ever heard of programmers referring to "code smells"? How can code
