@@ -28,8 +28,11 @@ Ans. Advantages are many, including modularity, abstraction, easy testability an
 ## Introduction to Namespace
 
 - There are different ways namespace is being used in this exercise
+#
 - Which way is better? What are the advantages and disadvantages?
 
+Ans. Using named namespaces is preferred over unnamed ones as it has multiple advantages such as prevention of symbol collisions, improves code organisation and readability also with downsides like code appears more verbose to write something like "network::" everywhere.
+#
 ## Abstracting Code into Classes
 
 - Abstract the client and server logic into a `Client` and `Server` class
