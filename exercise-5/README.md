@@ -6,6 +6,11 @@
 
 - What's an easy way to identify the changes in source code from one exercise
   to another?
+
+Ans. use this command
+```
+ diff -u exercise-3/src/tcp_echo_client.cc exercise-4/src/tcp_echo_client.cpp
+```
     
 ## Using Classes
 
