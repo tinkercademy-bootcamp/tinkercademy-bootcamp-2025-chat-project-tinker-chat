@@ -52,22 +52,36 @@ Ans. Using named namespaces is preferred over unnamed ones as it has multiple ad
 - Have you ever heard of programmers referring to "code smells"? How can code
   smell?
 
-Ans.
+Ans. Yes, some common code smells that I hear are repeated code segments that appear in multiple locations, violating the "don't repeat yourself" principle and making maintenance challenging or Code segments that are written but never executed, cluttering the codebase and adding unnecessary complexity.
 #
 - What does it mean to have a sense of taste in programming? How can code
   taste?
 
-Ans. It refers to having intuition about clean, elegant, and efficient code design.
+Ans. It refers to having intuition about clean, elegant, and efficient code design but it is easy to sense bad taste code.
 #
-- Is there an analogue for every sense?
+- Is there an analogue for every sense? What other code senses can you think of?
 
+Ans. Smell - sensing bad patterns
 
-- What other code senses can you think of?
+Taste - the style and design
+
+Sight - the structure of code
+
+Touch - the modifications
+
+Hear - the logging and error handling
+#
 - How many senses do humans have?
 
 Ans. Five( Smell, Taste, Touch, Hear, Sight)
 #
 - When would you want to see something before you touch it?
 
+Ans. This means we understand(see) the code before we modify(touch) the code, it happens when we are dealing with large codebase or while reviewing unfamiliar PRs, that we understand the whole repo before we actually make changes to it.
 
+#
 - When would you want to touch something before you see it?
+
+Ans. This means we modify(touch) the code before we understand(see) the code, it happens when we debug to test code behavior even if implementation isn’t clear yet.
+
+#
