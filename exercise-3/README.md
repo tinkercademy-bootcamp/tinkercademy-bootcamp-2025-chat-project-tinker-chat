@@ -12,7 +12,7 @@
 - Are there any costs to writing code like this?
   - Slightly higher performance overhead, due to copying of the error message from a C-style string literal into an `std::string` every time the function is called
 - Apply `check_error` to all the code in `src/`
-  - [DO LATER]
+  - Done
 
 ## Introduction to Compiler Explorer
 
