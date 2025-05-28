@@ -15,8 +15,15 @@ Ans. use this command
 ## Using Classes
 
 - Here is one way to separate out the code into multiple files
+#
 - Is this the best way to do it? 
+
+Ans. It depends. Using classes provide better organization and encapsulation, especially as code complexity grows.
+#
+
 - What are the advantages and disadvantages?
+
+Ans. Advantages are many, including modularity, abstraction, easy testability and its resusable due to objects. Disadavantage is that in smaller programs, this creates complexity and more lines of code.
 
 ## Introduction to Namespace
 
