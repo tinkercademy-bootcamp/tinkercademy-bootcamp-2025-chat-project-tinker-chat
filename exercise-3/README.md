@@ -12,6 +12,7 @@
 - Are there any costs to writing code like this?
   - Slightly higher performance overhead, due to copying of the error message from a C-style string literal into an `std::string` every time the function is called
 - Apply `check_error` to all the code in `src/`
+  - [DO LATER]
 
 ## Introduction to Compiler Explorer
 
@@ -41,18 +42,39 @@
 - Make sure you have `-fsanitize=address` in both your `CXX_FLAGS` and 
   `LD_FLAGS` in your Makefile
 - What do `-fsanitize=address`, `CXX_FLAGS` and `LD_FLAGS` mean?
+  - The `-fsanitize=address` flag enables AddressSanitizer, which is a runtime memory error detector
+  - It catches bugs like:
+    - Heap buffer overflow
+    - Stack buffer overflow
+    - Use-after-free  
+  - `CXX_FLAGS`: flags passed to the compiler, affects how `.cpp` is compiled into `.o`; Examples: `-O2`, `-g`, `-std=`, `-fsanitize=address`
+  - `LD_FLAGS`: flags passed to the linker, to link necessary libraries to produce the final binary; Examples: `-fsanitize=address`, `-lm`, `-lpthread` (note that `-fsanitize=address` is both a compiler and a linker flag)
 - With the new tool of the Compiler Explorer, and keeping in mind what you 
   have learned about how to use debug mode
 - What happens when you look at a `std::string` using the above methods?
+  - `std::string` stores a pointer to the text that it stores
+  - Stores the current string length
+  - Stores the capacity (total space allocated for the text)
+  - Total = 24 bytes of memory
+  - However, if the string is short enough (<= 15 chars), the string is stored directly inside the character buffer of the `std::string`; this is called SSO (Short String Optimization) 
 - Where is the text in your `std::string`?
+  - The text is stored in the heap
+  - `std::string` stores a pointer to that string
 - What is `std::optional`?
+  - Represents an object that may or many not contain a value
 - How do you find out the memory layout of a `std::optional`?
+  - Got some idea by experimenting with the memory view
+  - `std::optional<T>` contains a value of type T and a boolean flag denoting whether or not the object contains a value
+  - Additional padding is added (if required) to ensure that memory alignment is proper 
 - Read https://en.cppreference.com/w/cpp/memory#Smart_pointers - Guide to 
   modern C++ memory management using smart pointers
 - Which pointer types are the most important to know about?
+  - `unique_ptr` and `shared_ptr`
 - Which smart pointer should you use by default if you can?
+  - `unique_ptr` because it avoids the confusion caused by multiple pointers pointing to the same resource
 - Does changing your optimization level in `CXXFLAGS` from `-O0` to `-O3` have
   any impact on the answers to any of the above questions?
+  - No
 
 ## More Thinking About Performance
 
