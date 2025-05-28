@@ -6,18 +6,33 @@
 
 - What's an easy way to identify the changes in source code from one exercise
   to another?
+
+Ans. use this command
+```
+ diff -u exercise-3/src/tcp_echo_client.cc exercise-4/src/tcp_echo_client.cpp
+```
     
 ## Using Classes
 
 - Here is one way to separate out the code into multiple files
+#
 - Is this the best way to do it? 
+
+Ans. It depends. Using classes provide better organization and encapsulation, especially as code complexity grows.
+#
+
 - What are the advantages and disadvantages?
+
+Ans. Advantages are many, including modularity, abstraction, easy testability and its resusable due to objects. Disadavantage is that in smaller programs, this creates complexity and more lines of code.
 
 ## Introduction to Namespace
 
 - There are different ways namespace is being used in this exercise
+#
 - Which way is better? What are the advantages and disadvantages?
 
+Ans. Using named namespaces is preferred over unnamed ones as it has multiple advantages such as prevention of symbol collisions, improves code organisation and readability also with downsides like code appears more verbose to write something like "network::" everywhere.
+#
 ## Abstracting Code into Classes
 
 - Abstract the client and server logic into a `Client` and `Server` class
