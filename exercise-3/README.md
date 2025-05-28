@@ -92,16 +92,27 @@
     hexadecimal
   - Try accessing different parts of the struct and see in compiler explorer
     what the assembly looks like
-  - What happens if you iterate the pointer to outside the bounds of your
-    array?
+  - What happens if you iterate the pointer to outside the bounds of your array?
+    - Prints garbage values
   - Let's say your struct is called `Foo`
   - What is the difference between `std::vector<Foo>` and `std::vector<Foo*>`?
+    - `std::vector<Foo>` is a vector of Foo objects, whereas `std::vector<Foo*>` is a vector of pointers to Foo objects
   - What are the tradeoffs between using `std::vector<Foo>` vs 
     `std::vector<Foo*>`? 
-  - Give an example where `std::vector<Foo>` is a better choice than 
-    `std::vector<Foo*>`
+    - `std::vector<Foo*>` gives us greater flexibility by allowing for polymorphism to be used; if the `Bar` class inherits `Foo`, then `std::vector<Foo*>` can store pointers to both `Foo` and `Bar` objects 
+    - However, it gives us the overhead of having to manually manage the memory (i.e ensure that all pointers are deleted safely)
+  - Give an example where `std::vector<Foo>` is a better choice than `std::vector<Foo*>`
+    - Need to store `n` instances of the `Foo` object, where operations involved are just reading the `Foo` object at the ith index, no complex operations performed
   - Give another example where the opposite is true
-  - Can you create `std::vector<Foo&>`? 
+    - Polymorphism; if the `Bar` class inherits `Foo`, then `std::vector<Foo*>` can store pointers to both `Foo` and `Bar` objects
+  - Can you create `std::vector<Foo&>`?
+    - No, because references are not assignable
   - Can you create `std::vector<std::optional<Foo>>`?
+    - Yes
   - What happens if your struct contains another struct?
+    - Nested structs are allowed
+    - The memory for the members of the struct are allocated in the order in which they appear
+    - When a nested struct is encountered, the memory for that struct is allocated first and then any required padding is applied to the nested struct, after which the #of bytes of the nested struct is known
+    - Once the sizes of all data members of the parent struct are known, any additional padding required for the parent struct is applied
   - What is the difference between a struct and a class?
+    - Default member access is public in a struct and private in a class
