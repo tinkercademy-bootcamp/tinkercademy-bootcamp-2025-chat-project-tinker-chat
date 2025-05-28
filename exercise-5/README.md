@@ -51,10 +51,23 @@ Ans. Using named namespaces is preferred over unnamed ones as it has multiple ad
 
 - Have you ever heard of programmers referring to "code smells"? How can code
   smell?
+
+Ans.
+#
 - What does it mean to have a sense of taste in programming? How can code
   taste?
+
+Ans. It refers to having intuition about clean, elegant, and efficient code design.
+#
 - Is there an analogue for every sense?
+
+
 - What other code senses can you think of?
 - How many senses do humans have?
+
+Ans. Five( Smell, Taste, Touch, Hear, Sight)
+#
 - When would you want to see something before you touch it?
+
+
 - When would you want to touch something before you see it?
