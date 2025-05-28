@@ -36,10 +36,34 @@ Ans. Using named namespaces is preferred over unnamed ones as it has multiple ad
 ## Abstracting Code into Classes
 
 - Abstract the client and server logic into a `Client` and `Server` class
+#
 - **Note**: You don't have to use the code in this exercise as a starting point
+#
 - You can use the code you wrote from previous exercises instead
+#
 - How should you divide the code into files?
+
+Ans. The code must be divided into client.h, client.cc, server.h and server.cc which contains classes Client and Server and also necessary changes have to be made to already existing files client-main.cc, server-main.cc and utils.h 
+#
 - What namespace and directory structure should you use? Why?
+
+Ans. Use tt::chat for general utilities and networking. Use nested namespaces like tt::chat::client and tt::chat::server for client and server logic to maintain clarity.
+
+The directory structure for source files is:
+```
+exercise-5/
+├── src/
+│   ├── client/
+│   │   ├── client.h
+│   │   ├── client.cc
+│   ├── server/
+│   │   ├── server.h
+│   │   ├── server.cc
+│   ├── net/
+│   │   ├── chat-sockets.h
+│   │   ├── chat-sockets.cc
+│   ├── utils.h
+```
 
 ## Programming Sense of Taste
 
