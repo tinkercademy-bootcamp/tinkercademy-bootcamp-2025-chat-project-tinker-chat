@@ -8,7 +8,7 @@
       "name": "Launch without Debug",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/tcp_echo_server",
+      "program": "${workspaceFolder}/build/server",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

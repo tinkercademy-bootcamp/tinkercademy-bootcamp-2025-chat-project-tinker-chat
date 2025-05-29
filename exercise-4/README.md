@@ -16,7 +16,9 @@
   ./client "message"
   ```
 - How would you compile using make?
+  - Refer Makefile.
 - How would you compile using VS Code?
+  
 
 ### Compiling vs Linking
 
