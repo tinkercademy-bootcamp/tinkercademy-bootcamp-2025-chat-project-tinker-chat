@@ -48,5 +48,6 @@ fundamentals with practical examples and common patterns.
 
 - Is it better to have many small files spread across many directories, or
   a few large files across fewer directories?
+  - Small files are easy to maintain and are easy to debug.
 - Is there a difference in compilation time between the two?
 - How can you assess performance other than compilation speed?
