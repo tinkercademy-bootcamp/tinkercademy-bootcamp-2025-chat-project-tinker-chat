@@ -8,11 +8,11 @@
   `tcp_echo_client.cc` to separate `.h` and `.cc` files
 - How would you compile from the command line?
   ```sh
-  g++ tcp_echo_server.cpp tcp_echo.cc -o server
+  g++ tcp_echo_server.cpp tcp_echo_shared.cc -o server
   ./server
   ```
   ```sh
-  g++ tcp_echo_client.cpp tcp_echo.cc -o client
+  g++ tcp_echo_client.cpp tcp_echo_shared.cc -o client
   ./client "message"
   ```
 - How would you compile using make?
