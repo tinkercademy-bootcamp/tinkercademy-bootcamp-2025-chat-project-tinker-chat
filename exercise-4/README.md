@@ -52,3 +52,4 @@ fundamentals with practical examples and common patterns.
 - Is there a difference in compilation time between the two?
   - Large files may take less compile time, however, if we do changes for small files, it will recompile only those files, but for large files, even if we do a small change, it will recompile the whole file.
 - How can you assess performance other than compilation speed?
+  - Check time or memory usage. You can check the executable size.
