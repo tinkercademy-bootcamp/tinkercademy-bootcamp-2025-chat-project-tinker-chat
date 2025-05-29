@@ -24,9 +24,10 @@
 ### Compiling vs Linking
 
 - What is the difference between compiling and linking in C++?
-  - Compiling converts the source files into object files while linking links all the object files to make an executable.
+  - Compiling converts the source files into object files while linking links all the object files to make an executable or a library.
 - What is the difference between creating an executable and creating a 
   library?
+  - An executable runs as a program while library is used by executables and it can be reused.
 - How do you compile a library, and then use that library to compile an
   executable?
 
