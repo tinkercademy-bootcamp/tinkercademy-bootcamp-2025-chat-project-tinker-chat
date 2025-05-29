@@ -30,6 +30,15 @@
   - An executable runs as a program while library is used by executables and it can be reused.
 - How do you compile a library, and then use that library to compile an
   executable?
+  - Compile library:  
+    ```sh
+    g++ -c mylib.cpp -o mylib.o  
+    ar rcs libmylib.a mylib.o
+    ```
+  - Compile executable using library:  
+    ```sh
+    g++ main.cpp -L. -lmylib -o main
+    ```
 
 ### Reminder 
 [Quickstart tutorial to make](https://makefiletutorial.com/) - Learn make 
