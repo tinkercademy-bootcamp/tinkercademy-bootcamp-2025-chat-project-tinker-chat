@@ -7,6 +7,14 @@
 - Move code that can be shared between `tcp_echo_server.cc` and 
   `tcp_echo_client.cc` to separate `.h` and `.cc` files
 - How would you compile from the command line?
+  ```sh
+  g++ tcp_echo_server.cpp tcp_echo.cc -o server
+  ./server
+  ```
+  ```sh
+  g++ tcp_echo_client.cpp tcp_echo.cc -o client
+  ./client "message"
+  ```
 - How would you compile using make?
 - How would you compile using VS Code?
 
