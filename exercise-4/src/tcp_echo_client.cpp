@@ -6,7 +6,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include "tcp_echo.h"
+#include "tcp_echo_shared.h"
 
 sockaddr_in create_address(const std::string &server_ip, int port) {
   sockaddr_in address;

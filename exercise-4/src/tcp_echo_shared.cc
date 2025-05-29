@@ -1,5 +1,5 @@
 #include <netinet/in.h>
-#include "tcp_echo.h"
+#include "tcp_echo_shared.h"
 
 int create_socket() {
   int sock = socket(AF_INET, SOCK_STREAM, 0);

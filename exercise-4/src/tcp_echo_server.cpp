@@ -3,7 +3,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include "tcp_echo.h"
+#include "tcp_echo_shared.h"
 
 void set_socket_options(int sock, int opt) {
   auto err_code = setsockopt(sock, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
