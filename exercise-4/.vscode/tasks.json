@@ -4,12 +4,10 @@
     {
       "label": "Build Client",
       "type": "shell",
-      "command": "g++",
+      "command": "bash",
       "args": [
-        "${workspaceFolder}/src/tcp_echo_client.cpp",
-        "${workspaceFolder}/src/tcp_echo_shared.cc",
-        "-o",
-        "${workspaceFolder}/build/client"
+        "-c",
+        "mkdir -p ${workspaceFolder}/build && g++ ${workspaceFolder}/src/tcp_echo_client.cpp ${workspaceFolder}/src/tcp_echo_shared.cc -o ${workspaceFolder}/build/client"
       ],
       "group": {
         "kind": "build",
@@ -22,20 +20,13 @@
     {
       "label": "Build Server",
       "type": "shell",
-      "command": "g++",
+      "command": "bash",
       "args": [
-        "${workspaceFolder}/src/tcp_echo_server.cpp",
-        "${workspaceFolder}/src/tcp_echo_shared.cc",
-        "-o",
-        "${workspaceFolder}/build/server"
+        "-c",
+        "mkdir -p ${workspaceFolder}/build && g++ ${workspaceFolder}/src/tcp_echo_server.cpp ${workspaceFolder}/src/tcp_echo_shared.cc -o ${workspaceFolder}/build/server"
       ],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
-      "problemMatcher": [
-        "$gcc"
-      ]
+      "group": "build",
+      "problemMatcher": []
     }
   ]
 }
