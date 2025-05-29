@@ -18,11 +18,13 @@
 - How would you compile using make?
   - Refer Makefile.
 - How would you compile using VS Code?
+  - Read `tasks.json` and `launch.json` in `.vscode`.
   
 
 ### Compiling vs Linking
 
 - What is the difference between compiling and linking in C++?
+  - Compiling converts the source files into object files while linking links all the object files to make an executable.
 - What is the difference between creating an executable and creating a 
   library?
 - How do you compile a library, and then use that library to compile an
