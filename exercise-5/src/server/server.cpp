@@ -57,4 +57,8 @@ void Server::start() {
     handle_accept(client_sock);
   }
 }
+Server::~Server() {
+  close(sock_);
+  std::cout << "Server socket closed.\n";
+}
 }
