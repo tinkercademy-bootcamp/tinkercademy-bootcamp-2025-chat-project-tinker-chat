@@ -49,4 +49,12 @@ void set_socket_options(int sock, int opt) {
     perror("setsockopt failed");
   }
 }
+void Server::start() {
+    socklen_t address_size = sizeof(server_address_);
+  while (true) {
+    int client_sock = accept(sock_, (sockaddr *)&server_address_, &address_size);
+    check_error(client_sock < 0, "Accept error\n");
+    handle_accept(client_sock);
+  }
+}
 }
