@@ -13,4 +13,8 @@ Server::Server(int port) : port_(port), sock_(create_server_socket()) {
   bind_address_to_socket();
   listen_on_socket();
 }
+void Server::create_server_address(int port) {
+  server_address_ = net::create_address(port);
+  server_address_.sin_addr.s_addr = INADDR_ANY; // Accept connections from any IP
+}
 }
