@@ -21,6 +21,10 @@
 
 - There are different ways namespace is being used in this exercise
 - Which way is better? What are the advantages and disadvantages?
+  - Using nested namespaces (like tt::chat::net in our case) helps organize code hierarchically
+  - Triple-nested namespace provides clear separation: tt (project) -> chat (module) -> net (component)
+  - Flat namespaces would be simpler but could lead to naming conflicts
+  - I find nested namespaces more maintainable for structured projects like ours
 
 ## Abstracting Code into Classes
 
