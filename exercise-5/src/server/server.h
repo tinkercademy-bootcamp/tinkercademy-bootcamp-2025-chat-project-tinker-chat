@@ -19,7 +19,7 @@ private:
     void bind_address_to_socket();
     void listen_on_socket();
     void handle_accept(int client_sock);
-    void set_socket_options(int opt);
+    void set_socket_options(int sock);
 };
 }
 #endif

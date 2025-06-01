@@ -10,7 +10,7 @@
 namespace tt::chat::server {
 Server::Server(int port) : port_(port), sock_(net::create_socket()) {
   create_server_address(port);
-  set_socket_options(1);
+  set_socket_options(sock_);
   bind_address_to_socket();
   listen_on_socket();
 }
@@ -43,7 +43,7 @@ void Server::handle_accept(int client_sock) {
   
   close(client_sock);
 }
-void set_socket_options(int sock, int opt) {
+void set_socket_options(int sock) {
   int opt_val = 1;
   if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &opt_val, sizeof(opt_val)) < 0) {
     perror("setsockopt failed");
