@@ -6,7 +6,7 @@
 
 - What's an easy way to identify the changes in source code from one exercise
   to another?
-  - Use diff or meld.
+  - Use diff, git diff or meld. You can also use VS code's built-in diff viewer.
     
 ## Using Classes
 
