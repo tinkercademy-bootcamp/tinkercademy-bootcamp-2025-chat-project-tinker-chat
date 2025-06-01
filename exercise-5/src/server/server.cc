@@ -43,7 +43,7 @@ void Server::handle_accept(int client_sock) {
   
   close(client_sock);
 }
-void set_socket_options(int sock) {
+void Server::set_socket_options(int sock) {
   int opt_val = 1;
   if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &opt_val, sizeof(opt_val)) < 0) {
     perror("setsockopt failed");
