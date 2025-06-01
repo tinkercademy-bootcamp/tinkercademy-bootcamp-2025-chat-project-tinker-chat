@@ -26,4 +26,20 @@ void Server::listen_on_socket() {
   check_error(err_code < 0, "listen failed\n");
   std::cout << "Server listening on port " << port_ << "\n";
 }
+void Server::handle_accept(int client_sock) {
+  char buffer[1024] = {0};
+  ssize_t read_size = read(client_sock, buffer, sizeof(buffer));
+  check_error(read_size < 0, "Read error.\n");
+  
+  if (read_size > 0) {
+    std::cout << "Received: " << buffer << "\n";
+    std::string response = "Message received: " + std::string(buffer);
+    send(client_sock, response.c_str(), response.size(), 0);
+    std::cout << "Sent: " << response << "\n";
+  } else if (read_size == 0) {
+    std::cout << "Client closed connection.\n";
+  }
+  
+  close(client_sock);
+}
 }
