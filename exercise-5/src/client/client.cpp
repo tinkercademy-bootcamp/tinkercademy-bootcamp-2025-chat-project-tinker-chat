@@ -10,7 +10,7 @@
 #include "../utils.h"
 #include "client.h"
 
-namespace tt::chat {
+namespace tt::chat::client {
 Client::Client(const std::string& server_address, int port)
     : port_(port), sock_(net::create_socket()) {
   create_server_address(server_address, port);
@@ -42,5 +42,9 @@ void Client::send_and_receive_message(const std::string& message) {
   } else if (read_size == 0) {
     std::cout << "Server closed connection.\n";
   }
+}
+Client::~Client() {
+  close(sock_);
+  std::cout << "Connection closed.\n";
 }
 }
