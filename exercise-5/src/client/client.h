@@ -1,6 +1,11 @@
+#ifndef CLIENT_H
+#define CLIENT_H
+
 #include <arpa/inet.h>
 #include <iostream>
 #include <netinet/in.h>
+
+namespace tt::chat {
 
 class Client {
 public:
@@ -15,3 +20,7 @@ private:
     void connectToServer();
     void create_server_address(const std::string &server_ip, int port);
 };
+
+} // namespace tt::chat
+
+#endif // CLIENT_H
