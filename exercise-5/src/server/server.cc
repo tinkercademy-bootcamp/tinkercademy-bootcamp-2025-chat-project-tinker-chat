@@ -30,15 +30,14 @@ void Server::listen_on_socket() {
 void Server::handle_accept(int client_sock) {
   char buffer[1024] = {0};
   ssize_t read_size = read(client_sock, buffer, sizeof(buffer));
-  check_error(read_size < 0, "Read error.\n");
+  check_error(read_size < 0, "Read error on client socket " + std::to_string(client_sock));
   
   if (read_size > 0) {
     std::cout << "Received: " << buffer << "\n";
-    std::string response = "Message received: " + std::string(buffer);
-    send(client_sock, response.c_str(), response.size(), 0);
-    std::cout << "Sent: " << response << "\n";
+    send(client_sock, buffer, read_size, 0);
+    std::cout << "Echo message sent\n";
   } else if (read_size == 0) {
-    std::cout << "Client closed connection.\n";
+    std::cout << "Client disconnected.\n";
   }
   
   close(client_sock);
