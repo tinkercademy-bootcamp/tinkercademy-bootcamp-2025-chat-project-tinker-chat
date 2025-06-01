@@ -17,4 +17,8 @@ void Server::create_server_address(int port) {
   server_address_ = net::create_address(port);
   server_address_.sin_addr.s_addr = INADDR_ANY; // Accept connections from any IP
 }
+void Server::bind_address_to_socket() {
+  auto err_code = bind(sock_, (sockaddr *)&server_address_, sizeof(server_address_));
+  check_error(err_code < 0, "bind failed\n");
+}
 }
