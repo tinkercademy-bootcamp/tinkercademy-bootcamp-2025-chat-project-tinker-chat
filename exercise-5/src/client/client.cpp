@@ -22,4 +22,8 @@ void Client::create_server_address(const std::string& server_ip, int port) {
   auto err_code = inet_pton(AF_INET, server_ip.c_str(), &server_address_.sin_addr);
   check_error(err_code <= 0, "Invalid address/ Address not supported\n");
 }
+void Client::connectToServer() {
+  auto err_code = connect(sock_, (sockaddr*)&server_address_, sizeof(server_address_));
+  check_error(err_code < 0, "Connection Failed.\n");
+}
 }
