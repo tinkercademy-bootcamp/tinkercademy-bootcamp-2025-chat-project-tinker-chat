@@ -14,6 +14,8 @@
 - Is this the best way to do it? 
   - It's a very good way, but what's best depends upon the size and complexity of the project.
 - What are the advantages and disadvantages?
+  - Advantages: Better organization, easier testing, cleaner code structure, reusability
+  - Disadvantages: More files to manage, slight overhead for small projects, need to think about dependencies
 
 ## Introduction to Namespace
 
