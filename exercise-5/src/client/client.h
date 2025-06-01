@@ -5,7 +5,7 @@
 #include <iostream>
 #include <netinet/in.h>
 
-namespace tt::chat {
+namespace tt::chat::client {
 
 class Client {
 public:
