@@ -2,7 +2,7 @@
 
 int tt::chat::net::create_socket() {
   int sock = socket(AF_INET, SOCK_STREAM, 0);
-  tt::chat::check_error(sock < 0, "Socket creation error\n");
+  tt::chat::check_error(sock < 0, "Socket creation error");
   return sock;
 }
 

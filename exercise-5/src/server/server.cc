@@ -20,11 +20,11 @@ void Server::create_server_address(int port) {
 }
 void Server::bind_address_to_socket() {
   auto err_code = bind(sock_, (sockaddr *)&server_address_, sizeof(server_address_));
-  check_error(err_code < 0, "bind failed\n");
+  check_error(err_code < 0, "bind failed");
 }
 void Server::listen_on_socket() {
   auto err_code = listen(sock_, 3);
-  check_error(err_code < 0, "listen failed\n");
+  check_error(err_code < 0, "listen failed");
   std::cout << "Server listening on port " << port_ << "\n";
 }
 void Server::handle_accept(int client_sock) {
@@ -45,14 +45,14 @@ void Server::handle_accept(int client_sock) {
 void Server::set_socket_options(int sock) {
   int opt_val = 1;
   if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &opt_val, sizeof(opt_val)) < 0) {
-    perror("setsockopt failed");
+    perror("setsockopt() error");
   }
 }
 void Server::start() {
     socklen_t address_size = sizeof(server_address_);
   while (true) {
     int client_sock = accept(sock_, (sockaddr *)&server_address_, &address_size);
-    check_error(client_sock < 0, "Accept error\n");
+    check_error(client_sock < 0, "Accept error");
     handle_accept(client_sock);
   }
 }

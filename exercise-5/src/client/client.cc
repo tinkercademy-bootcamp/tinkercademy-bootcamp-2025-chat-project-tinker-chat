@@ -20,11 +20,11 @@ void Client::create_server_address(const std::string& server_ip, int port) {
   server_address_ = net::create_address(port);
   // Convert the server IP address to a binary format
   auto err_code = inet_pton(AF_INET, server_ip.c_str(), &server_address_.sin_addr);
-  check_error(err_code <= 0, "Invalid address/ Address not supported\n");
+  check_error(err_code <= 0, "Invalid address/ Address not supported");
 }
 void Client::connectToServer() {
   auto err_code = connect(sock_, (sockaddr*)&server_address_, sizeof(server_address_));
-  check_error(err_code < 0, "Connection Failed.\n");
+  check_error(err_code < 0, "Connection Failed.");
 }
 void Client::send_and_receive_message(const std::string& message) {
   const int kBufferSize = 1024;
@@ -45,6 +45,5 @@ void Client::send_and_receive_message(const std::string& message) {
 }
 Client::~Client() {
   close(sock_);
-  std::cout << "Connection closed.\n";
 }
 }
