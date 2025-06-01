@@ -21,4 +21,9 @@ void Server::bind_address_to_socket() {
   auto err_code = bind(sock_, (sockaddr *)&server_address_, sizeof(server_address_));
   check_error(err_code < 0, "bind failed\n");
 }
+void Server::listen_on_socket() {
+  auto err_code = listen(sock_, 3);
+  check_error(err_code < 0, "listen failed\n");
+  std::cout << "Server listening on port " << port_ << "\n";
+}
 }
