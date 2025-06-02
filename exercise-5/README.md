@@ -32,6 +32,9 @@
 - **Note**: You don't have to use the code in this exercise as a starting point
 - You can use the code you wrote from previous exercises instead
 - How should you divide the code into files?
+  - I divided the code into separate files: `client.h`/`client.cc` for the `Client` class and `server.h`/`server.cc` for the `Server` class. Each class has its own header and implementation file.
+  - I placed these files in a `client/` directory, matching the namespace `tt::chat::client`. This keeps the directory structure consistent with the namespace, making it easier to locate files and understand the project organization.
+  - This approach improves maintainability and scalability, especially as the project grows.
 - What namespace and directory structure should you use? Why?
 
 ## Programming Sense of Taste
