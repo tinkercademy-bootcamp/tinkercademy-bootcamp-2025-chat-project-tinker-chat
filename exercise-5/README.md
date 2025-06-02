@@ -68,3 +68,5 @@
   - When reviewing others' code
   - When planning major refactoring
 - When would you want to touch something before you see it?
+  - When exploring a new API through trial and error
+  - When doing test-driven development
