@@ -36,6 +36,7 @@
   - I placed these files in a `client/` directory, matching the namespace `tt::chat::client`. This keeps the directory structure consistent with the namespace, making it easier to locate files and understand the project organization.
   - This approach improves maintainability and scalability, especially as the project grows.
 - What namespace and directory structure should you use? Why?
+  - I used the `tt::chat::client` and `tt::chat::server` namespaces for the `Client` and `Server` classes, respectively. The files are organized into `client/` and `server/` directories, each containing their own header and implementation files. This mirrors the namespace hierarchy in the directory structure, making it intuitive to find and manage code. It also helps prevent naming conflicts and keeps related code grouped together, which is especially helpful as the project grows.
 
 ## Programming Sense of Taste
 
