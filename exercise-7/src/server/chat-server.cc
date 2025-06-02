@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <sys/epoll.h>
 
 #include "spdlog/spdlog.h"
 
@@ -19,6 +20,11 @@ tt::chat::server::Server::Server(int port)
 
   err_code = listen(socket_, 3);
   check_error(err_code < 0, "listen failed\n");
+
+  make_socket_non_blocking(socket_);
+  epoll_fd_ = epoll_create1(0);
+  epoll_event event = {EPOLLIN, {.fd = socket_}};
+  err_code = epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, socket_, &event);
 
   std::cout << "Server listening on port " << port << "\n";
 }
