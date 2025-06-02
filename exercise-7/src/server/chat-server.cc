@@ -33,12 +33,19 @@ tt::chat::server::Server::Server(int port)
 tt::chat::server::Server::~Server() { close(socket_); close(epoll_fd_);}
 
 void tt::chat::server::Server::handle_connections() {
-  socklen_t address_size = sizeof(address_);
+  epoll_event events[kMaxEvents];
 
   while (true) {
-    int accepted_socket = accept(socket_, (sockaddr *)&address_, &address_size);
-    tt::chat::check_error(accepted_socket < 0, "Accept error n ");
-    handle_accept(accepted_socket);
+    int ready_fds = epoll_wait(epoll_fd_, events, kMaxEvents, -1);
+
+    for(int i = 0; i < ready_fds; i++){
+      if(events[i].data.fd == socket_){
+        handle_accept(socket_); // If the event is on the listening socket, accept a new connection
+      }
+      else {
+        handle_client_message(events[i].data.fd); // Handle messages from clients
+      }
+    }
   }
 }
 

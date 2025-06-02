@@ -22,6 +22,7 @@ private:
   std::unordered_map<std::string, std::set<int>> channels_;
 
   static constexpr int kBufferSize = 1024;
+  static constexpr int kMaxEvents = 1000; //can be changed
 
   void handle_accept(int sock);
   void handle_client_message(int client_fd);
