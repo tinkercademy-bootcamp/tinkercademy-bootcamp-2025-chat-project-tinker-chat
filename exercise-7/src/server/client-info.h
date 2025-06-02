@@ -2,11 +2,12 @@
 #define CLIENT_INFO_H
 
 #include <string>
-
+namespace tt::chat::server {
 struct ClientInfo {
     int fd;
     std::string username;
     std::string current_channel;
 };
+}
 
 #endif
