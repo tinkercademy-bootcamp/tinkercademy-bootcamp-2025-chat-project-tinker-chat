@@ -30,7 +30,7 @@ tt::chat::server::Server::Server(int port)
   std::cout << "Server listening on port " << port << "\n";
 }
 
-tt::chat::server::Server::~Server() { close(socket_); }
+tt::chat::server::Server::~Server() { close(socket_); close(epoll_fd_);}
 
 void tt::chat::server::Server::handle_connections() {
   socklen_t address_size = sizeof(address_);
