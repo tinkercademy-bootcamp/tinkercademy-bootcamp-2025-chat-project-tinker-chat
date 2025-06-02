@@ -63,5 +63,6 @@
   - Code complexity (taste)
   - Code patterns (hearing patterns)
 - How many senses do humans have?
+  - The classic five, plus balance, temperature, and more
 - When would you want to see something before you touch it?
 - When would you want to touch something before you see it?
