@@ -44,6 +44,7 @@
   structure? 
   - I think a good namespace and directory structure should make it easy to find, understand, and maintain code. If the structure matches how the code is organized logically (for example, by feature or component), it's easier to work with.
 - How do you judge what makes a good naming convention or programming style?
+  -  A good naming convention or style should be clear, consistent, and descriptive, so that anyone reading the code can quickly understand what things are and how they relate. I try to follow common conventions and keep things simple and readable.
 
 ## "Senses" in Programming
 
