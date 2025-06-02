@@ -25,6 +25,7 @@ tt::chat::server::Server::Server(int port)
   epoll_fd_ = epoll_create1(0);
   epoll_event event = {EPOLLIN, {.fd = socket_}};
   err_code = epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, socket_, &event);
+  channels_["general"] = std::set<int>();
 
   std::cout << "Server listening on port " << port << "\n";
 }
