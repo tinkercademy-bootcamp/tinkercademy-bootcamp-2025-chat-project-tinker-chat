@@ -65,4 +65,6 @@
 - How many senses do humans have?
   - The classic five, plus balance, temperature, and more
 - When would you want to see something before you touch it?
+  - When reviewing others' code
+  - When planning major refactoring
 - When would you want to touch something before you see it?
