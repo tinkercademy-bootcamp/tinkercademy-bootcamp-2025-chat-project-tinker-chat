@@ -58,6 +58,10 @@
 - Is there an analogue for every sense?
   - Yes, we see code, feel its structure, hear about issues.
 - What other code senses can you think of?
+  - Code flow (touch)
+  - Code clarity (sight)
+  - Code complexity (taste)
+  - Code patterns (hearing patterns)
 - How many senses do humans have?
 - When would you want to see something before you touch it?
 - When would you want to touch something before you see it?
