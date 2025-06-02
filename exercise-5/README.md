@@ -56,6 +56,7 @@
   - It's about appreciating elegant solutions and clean design
   - Good code "tastes" clean and straightforward
 - Is there an analogue for every sense?
+  - Yes, we see code, feel its structure, hear about issues.
 - What other code senses can you think of?
 - How many senses do humans have?
 - When would you want to see something before you touch it?
