@@ -66,3 +66,10 @@ void tt::chat::server::Server::handle_accept(int sock) {
   }
   close(sock);
 }
+
+int tt::chat::server::Server::make_socket_non_blocking(int sfd) {
+    int flags = fcntl(sfd, F_GETFL, 0);
+    if (flags == -1) return -1;
+    flags |= O_NONBLOCK;
+    return fcntl(sfd, F_SETFL, flags);
+}
