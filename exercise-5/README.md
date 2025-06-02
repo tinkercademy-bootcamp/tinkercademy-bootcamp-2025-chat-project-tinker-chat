@@ -53,6 +53,8 @@
   - Code smells are patterns that suggest deeper problms like duplicate code, long methods, too many parameters.
 - What does it mean to have a sense of taste in programming? How can code
   taste?
+  - It's about appreciating elegant solutions and clean design
+  - Good code "tastes" clean and straightforward
 - Is there an analogue for every sense?
 - What other code senses can you think of?
 - How many senses do humans have?
