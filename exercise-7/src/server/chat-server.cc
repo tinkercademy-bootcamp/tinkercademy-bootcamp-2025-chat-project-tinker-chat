@@ -115,3 +115,46 @@ void tt::chat::server::Server::process_message(int client_fd, const std::string&
   std::string channel_name = clients_[client_fd].current_channel;
   broadcast_to_channel(channel_name, clients_[client_fd].username + ": " + msg + "\n", client_fd);
 }
+
+void tt::chat::server::Server::handle_command(ClientInfo& client, std::vector<std::string>& tokens) {
+  if(tokens[0] == "/username") {
+    if(tokens.size() < 2) {
+      send(client.fd, "Usage: /username <your_username>\n", 33, 0);
+      return;
+    }
+    client.username = tokens[1];
+    send(client.fd, ("Username set to " + client.username + "\n").c_str(), client.username.size() + 17, 0);
+  } else if(tokens[0] == "/join") {
+    if(tokens.size() < 2) {
+      send(client.fd, "Usage: /join <channel_name>\n", 28, 0);
+      return;
+    }
+    std::string channel_name = tokens[1];
+    if(channels_.find(channel_name) == channels_.end()) {
+      send(client.fd, ("Channel " + channel_name + " does not exist. You can create it by using /create command.\n").c_str(), channel_name.size() + 45, 0);
+      return;
+    }
+    channels_[channel_name].insert(client.fd);
+    client.current_channel = channel_name;
+    broadcast_to_channel(channel_name, client.username + " has joined the channel.\n", client.fd);
+    send(client.fd, ("Joined channel: " + channel_name + "\n").c_str(), channel_name.size() + 16, 0);
+  } else if(tokens[0] == "/leave") {
+    channels_[client.current_channel].erase(client.fd);
+    client.current_channel = "general";
+    send(client.fd, "Left current channel. You are now in 'general' channel.\n", 56, 0);
+  } else if(tokens[0] == "/list") {
+    std::string channel_list = "Available channels:\n";
+    for(const auto& channel : channels_) {
+      channel_list += channel.first + "\n";
+    }
+    send(client.fd, channel_list.c_str(), channel_list.size(), 0);
+  } else if(tokens[0] == "/exit") {
+    close(client.fd);
+    clients_.erase(client.fd);
+    channels_[client.current_channel].erase(client.fd);
+    SPDLOG_INFO("Client disconnected: fd = {}", client.fd);
+  }
+  else {
+    send(client.fd, "Unknown command\n", 16, 0);
+  }
+}

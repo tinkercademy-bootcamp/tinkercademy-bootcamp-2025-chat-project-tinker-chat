@@ -85,6 +85,10 @@ void tt::chat::client::Client::handle_user_input() {
     }
     if (input == "/exit") {
       running_ = false;
+      if (send(socket_, input.c_str(), input.size(), 0) < 0) {
+        SPDLOG_ERROR("Failed to send message");
+        break;
+      }
       std::cout << "Exiting chat client...\n";
       close(socket_);
       exit(0);
