@@ -148,7 +148,22 @@ void tt::chat::server::Server::handle_command(ClientInfo& client, std::vector<st
       channel_list += channel.first + "\n";
     }
     send(client.fd, channel_list.c_str(), channel_list.size(), 0);
-  } else if(tokens[0] == "/exit") {
+  } else if(tokens[0] == "/create") {
+    if(tokens.size() < 2) {
+      send(client.fd, "Usage: /create <channel_name>\n", 30, 0);
+      return;
+    }
+    std::string channel_name = tokens[1];
+    if(channels_.find(channel_name) != channels_.end()) {
+      send(client.fd, ("Channel " + channel_name + " already exists.\n").c_str(), channel_name.size() + 25, 0);
+      return;
+    }
+    channels_[channel_name] = std::set<int>();
+    channels_[channel_name].insert(client.fd);
+    client.current_channel = channel_name;
+    send(client.fd, ("Channel " + channel_name + " created and joined.\n").c_str(), channel_name.size() + 31, 0);
+  }
+  else if(tokens[0] == "/exit") {
     close(client.fd);
     clients_.erase(client.fd);
     channels_[client.current_channel].erase(client.fd);
