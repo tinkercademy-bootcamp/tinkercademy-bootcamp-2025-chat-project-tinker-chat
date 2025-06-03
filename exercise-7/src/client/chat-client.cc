@@ -31,6 +31,7 @@ tt::chat::client::Client::Client(int port,
 // }
 
 tt::chat::client::Client::~Client() { 
+  std::cout << "Closing client connection...\n";
   running_ = false;
   if (receiver_thread_.joinable()){
     receiver_thread_.join();
@@ -90,7 +91,7 @@ void tt::chat::client::Client::handle_user_input() {
       running_ = false;
       std::cout << "Exiting chat client...\n";
       close(socket_);
-      return;
+      exit(0);
     }
     if (send(socket_, input.c_str(), input.size(), 0) < 0) {
       SPDLOG_ERROR("Failed to send message");
