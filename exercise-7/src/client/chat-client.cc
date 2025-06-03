@@ -78,3 +78,21 @@ void tt::chat::client::Client::receive_messages(){
     std::cout << buffer << std::flush;
   }
 }
+
+void tt::chat::client::Client::handle_user_input() {
+  std::string input;
+  while (running_) {
+    std::getline(std::cin, input);
+    if(!running_ || input.empty()) {
+      continue; // Skip empty input
+    }
+    if (input == "/exit") {
+      tt::chat::client::Client::~Client();
+      break;
+    }
+    if (send(socket_, input.c_str(), input.size(), 0) < 0) {
+      SPDLOG_ERROR("Failed to send message");
+      break;
+    }
+  }
+}
