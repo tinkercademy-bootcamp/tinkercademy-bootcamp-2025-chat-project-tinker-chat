@@ -101,3 +101,17 @@ void tt::chat::server::Server::handle_client_message(int client_fd){
   buffer[msg_length] = '\0';
   process_message(client_fd, std::string(buffer, msg_length));
 }
+
+void tt::chat::server::Server::process_message(int client_fd, const std::string& msg) {
+  auto& client = clients_[client_fd];
+  std::vector<std::string> tokens = split_message(msg);
+  if (tokens.empty()) {
+    return; // An empty message is not processed (but it's not an error)
+  }
+  if(tokens[0][0] == '/') {
+    handle_command(client, tokens);
+    return;
+  }
+  std::string channel_name = clients_[client_fd].current_channel;
+  broadcast_to_channel(channel_name, clients_[client_fd].username + ": " + msg + "\n", client_fd);
+}
