@@ -78,7 +78,7 @@ void tt::chat::server::Server::handle_accept(int sock) {
   channels_["general"].insert(client_fd);
   std::string welcome_msg = "Welcome the the chat server! You are in the 'general' channel. You can set your username using /username command\n";
   send(client_fd, welcome_msg.c_str(), welcome_msg.size(), 0);
-  SPDLOG_INFO("New client connected: fd={}", client_fd);
+  SPDLOG_INFO("New client connected: fd = {}", client_fd);
 }
 
 int tt::chat::server::Server::make_socket_non_blocking(int sfd) {
@@ -86,4 +86,18 @@ int tt::chat::server::Server::make_socket_non_blocking(int sfd) {
     if (flags == -1) return -1;
     flags |= O_NONBLOCK;
     return fcntl(sfd, F_SETFL, flags);
+}
+
+void tt::chat::server::Server::handle_client_message(int client_fd){
+  char buffer[kBufferSize] = {0};
+  ssize_t msg_length = recv(client_fd, buffer, kBufferSize - 1, 0);
+  if(msg_length <= 0){
+    channels_["general"].erase(client_fd);
+    clients_.erase(client_fd);
+    close(client_fd);
+    SPDLOG_INFO("Client disconnected: fd = {}", client_fd);
+    return;
+  }
+  buffer[msg_length] = '\0';
+  process_message(client_fd, std::string(buffer, msg_length));
 }
