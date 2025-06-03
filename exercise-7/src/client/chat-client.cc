@@ -4,32 +4,38 @@
 
 tt::chat::client::Client::Client(int port,
                                          const std::string &server_address)
-    : socket_{tt::chat::net::create_socket()} {
+    : socket_{tt::chat::net::create_socket()}, running_(true) {
   sockaddr_in address = create_server_address(server_address, port);
   connect_to_server(socket_, address);
 }
 
-std::string tt::chat::client::Client::send_and_receive_message(
-    const std::string &message) {
-  using namespace tt::chat;
-  char recv_buffer[kBufferSize] = {0};
+// std::string tt::chat::client::Client::send_and_receive_message(
+//     const std::string &message) {
+//   using namespace tt::chat;
+//   char recv_buffer[kBufferSize] = {0};
 
-  // Send the message to the server
-  send(socket_, message.c_str(), message.size(), 0);
-  std::cout << "Sent: " << message << "\n";
+//   // Send the message to the server
+//   send(socket_, message.c_str(), message.size(), 0);
+//   std::cout << "Sent: " << message << "\n";
 
-  // Receive response from the server
-  ssize_t read_size = read(socket_, recv_buffer, kBufferSize);
-  if (read_size > 0) {
-    return std::string(recv_buffer);
-  } else if (read_size == 0) {
-    return "Server closed connection.\n";
-  } else {
-    return "Read error.\n";
+//   // Receive response from the server
+//   ssize_t read_size = read(socket_, recv_buffer, kBufferSize);
+//   if (read_size > 0) {
+//     return std::string(recv_buffer);
+//   } else if (read_size == 0) {
+//     return "Server closed connection.\n";
+//   } else {
+//     return "Read error.\n";
+//   }
+// }
+
+tt::chat::client::Client::~Client() { 
+  running_ = false;
+  if (receiver_thread_.joinable()){
+    receiver_thread_.join();
   }
+  close(socket_);
 }
-
-tt::chat::client::Client::~Client() { close(socket_); }
 
 sockaddr_in tt::chat::client::Client::create_server_address(
     const std::string &server_ip, int port) {
