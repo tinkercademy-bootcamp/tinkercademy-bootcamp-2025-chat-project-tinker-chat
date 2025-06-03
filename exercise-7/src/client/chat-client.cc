@@ -1,6 +1,7 @@
 #include "chat-client.h"
 #include "../net/chat-sockets.h"
 #include "../utils.h"
+#include <arpa/inet.h>
 
 tt::chat::client::Client::Client(int port,
                                          const std::string &server_address)
@@ -58,4 +59,22 @@ void tt::chat::client::Client::connect_to_server(
 void tt::chat::client::Client::start() {
   receiver_thread_ = std::thread(&Client::receive_messages, this);
   handle_user_input();
+}
+
+void tt::chat::client::Client::receive_messages(){
+  char buffer[kBufferSize];
+  while(running_){
+    ssize_t msg_length = recv(socket_, buffer, kBufferSize - 1, 0);
+    if(msg_length <= 0){
+      if (msg_length == 0) {
+        std::cout << "Server closed the connection.\n";
+      } else {
+        std::cerr << "Error receiving message: " << strerror(errno) << "\n";
+      }
+      running_ = false;
+      break;
+    }
+    buffer[msg_length] = '\0';
+    std::cout << buffer << std::flush;
+  }
 }
