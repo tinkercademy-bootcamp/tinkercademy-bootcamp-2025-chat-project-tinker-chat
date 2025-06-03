@@ -43,7 +43,7 @@ void tt::chat::server::Server::handle_connections() {
         handle_accept(socket_); // If the event is on the listening socket, accept a new connection
       }
       else {
-        handle_client_message(events[i].data.fd); // Handle messages from clients
+        // handle_client_message(events[i].data.fd); // Handle messages from clients
       }
     }
   }
