@@ -181,3 +181,13 @@ void tt::chat::server::Server::broadcast_to_channel(const std::string& channel, 
     }
   }
 }
+
+std::vector<std::string> tt::chat::server::Server::split_message(const std::string& msg) {
+  std::vector<std::string> tokens;
+  std::istringstream stream(msg);
+  std::string token;
+  while (stream >> token) {
+    tokens.push_back(token);
+  }
+  return tokens;
+}
