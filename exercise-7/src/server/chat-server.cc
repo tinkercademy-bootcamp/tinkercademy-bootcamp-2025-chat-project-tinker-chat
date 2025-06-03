@@ -43,7 +43,7 @@ void tt::chat::server::Server::handle_connections() {
         handle_accept(socket_); // If the event is on the listening socket, accept a new connection
       }
       else {
-        // handle_client_message(events[i].data.fd); // Handle messages from clients
+        handle_client_message(events[i].data.fd); // Handle messages from clients
       }
     }
   }
@@ -92,7 +92,7 @@ void tt::chat::server::Server::handle_client_message(int client_fd){
   char buffer[kBufferSize] = {0};
   ssize_t msg_length = recv(client_fd, buffer, kBufferSize - 1, 0);
   if(msg_length <= 0){
-    channels_["general"].erase(client_fd);
+    channels_[clients_[client_fd].current_channel].erase(client_fd);
     clients_.erase(client_fd);
     close(client_fd);
     SPDLOG_INFO("Client disconnected: fd = {}", client_fd);
@@ -161,13 +161,10 @@ void tt::chat::server::Server::handle_command(ClientInfo& client, std::vector<st
     channels_[channel_name] = std::set<int>();
     channels_[channel_name].insert(client.fd);
     client.current_channel = channel_name;
-    send(client.fd, ("Channel " + channel_name + " created and joined.\n").c_str(), channel_name.size() + 31, 0);
+    send(client.fd, ("Channel " + channel_name + " created and joined.\n").c_str(), channel_name.size() + 29, 0);
   }
   else if(tokens[0] == "/exit") {
     close(client.fd);
-    clients_.erase(client.fd);
-    channels_[client.current_channel].erase(client.fd);
-    SPDLOG_INFO("Client disconnected: fd = {}", client.fd);
   }
   else {
     send(client.fd, "Unknown command\n", 16, 0);

@@ -2,6 +2,7 @@
 #include "../net/chat-sockets.h"
 #include "../utils.h"
 #include <arpa/inet.h>
+#include <iostream>
 
 tt::chat::client::Client::Client(int port,
                                          const std::string &server_address)
@@ -90,8 +91,7 @@ void tt::chat::client::Client::handle_user_input() {
         break;
       }
       std::cout << "Exiting chat client...\n";
-      close(socket_);
-      exit(0);
+      return;
     }
     if (send(socket_, input.c_str(), input.size(), 0) < 0) {
       SPDLOG_ERROR("Failed to send message");
