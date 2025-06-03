@@ -76,7 +76,7 @@ void tt::chat::server::Server::handle_accept(int sock) {
   }
   clients_[client_fd] = ClientInfo(client_fd);
   channels_["general"].insert(client_fd);
-  std::string welcome_msg = "Welcome the the chat server! You are in the 'general' channel. You can set your username using /username command\n";
+  std::string welcome_msg = "Welcome to the chat server! You are in the 'general' channel. You can set your username using /username command\n";
   send(client_fd, welcome_msg.c_str(), welcome_msg.size(), 0);
   SPDLOG_INFO("New client connected: fd = {}", client_fd);
 }
@@ -135,13 +135,15 @@ void tt::chat::server::Server::handle_command(ClientInfo& client, std::vector<st
       return;
     }
     channels_[channel_name].insert(client.fd);
+    channels_[client.current_channel].erase(client.fd);
     client.current_channel = channel_name;
     broadcast_to_channel(channel_name, client.username + " has joined the channel.\n", client.fd);
-    send(client.fd, ("Joined channel: " + channel_name + "\n").c_str(), channel_name.size() + 16, 0);
+    send(client.fd, ("Joined channel: " + channel_name + "\n").c_str(), channel_name.size() + 17, 0);
   } else if(tokens[0] == "/leave") {
     channels_[client.current_channel].erase(client.fd);
-    broadcast_to_channel(client.current_channel, client.username + " has left the channel.\n", client.fd);
+    broadcast_to_channel(client.current_channel, client.username + " has left the channel" + client.current_channel + ".\n", client.fd);
     client.current_channel = "general";
+    channels_["general"].insert(client.fd);
     broadcast_to_channel("general", client.username + " has joined the channel.\n", client.fd);
     send(client.fd, "Left current channel. You are now in 'general' channel.\n", 56, 0);
   } else if(tokens[0] == "/list") {
@@ -162,6 +164,7 @@ void tt::chat::server::Server::handle_command(ClientInfo& client, std::vector<st
     }
     channels_[channel_name] = std::set<int>();
     channels_[channel_name].insert(client.fd);
+    channels_[client.current_channel].erase(client.fd);
     client.current_channel = channel_name;
     send(client.fd, ("Channel " + channel_name + " created and joined.\n").c_str(), channel_name.size() + 29, 0);
   }
