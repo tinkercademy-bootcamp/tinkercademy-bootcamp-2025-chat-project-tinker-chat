@@ -67,11 +67,7 @@ void tt::chat::client::Client::receive_messages(){
   while(running_){
     ssize_t msg_length = recv(socket_, buffer, kBufferSize - 1, 0);
     if(msg_length <= 0){
-      if (msg_length == 0) {
-        std::cout << "Server closed the connection.\n";
-      } else {
-        std::cerr << "Error receiving message: " << strerror(errno) << "\n";
-      }
+      SPDLOG_INFO("Disconnected from server.");
       running_ = false;
       break;
     }
