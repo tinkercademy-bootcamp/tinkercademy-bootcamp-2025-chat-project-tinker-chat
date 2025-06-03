@@ -57,21 +57,28 @@ void tt::chat::server::Server::set_socket_options(int sock, int opt) {
 }
 
 void tt::chat::server::Server::handle_accept(int sock) {
-  using namespace tt::chat;
+  using namespace tt::chat::server;
 
-  char buffer[kBufferSize] = {0};
-  ssize_t read_size = read(sock, buffer, kBufferSize);
-
-  if (read_size > 0) {
-    SPDLOG_INFO("Received: {}", buffer);
-    send(sock, buffer, read_size, 0);
-    SPDLOG_INFO("Echo message sent");
-  } else if (read_size == 0) {
-    SPDLOG_INFO("Client disconnected.");
-  } else {
-    SPDLOG_ERROR("Read error on client socket {}", socket_);
+  sockaddr_in client_address;
+  socklen_t client_address_len = sizeof(client_address);
+  int client_fd = accept(sock, (sockaddr *)&client_address, &client_address_len);
+  if (client_fd < 0) {
+    SPDLOG_ERROR("Accept failed");
+    return;
   }
-  close(sock);
+  make_socket_non_blocking(client_fd);
+  epoll_event event = {EPOLLIN, {.fd = client_fd}};
+  int err_code = epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, client_fd, &event);
+  if (err_code < 0) {
+    SPDLOG_ERROR("epoll_ctl failed");
+    close(client_fd);
+    return;
+  }
+  clients_[client_fd] = ClientInfo(client_fd);
+  channels_["general"].insert(client_fd);
+  std::string welcome_msg = "Welcome the the chat server! You are in the 'general' channel. You can set your username using /username command\n";
+  send(client_fd, welcome_msg.c_str(), welcome_msg.size(), 0);
+  SPDLOG_INFO("New client connected: fd={}", client_fd);
 }
 
 int tt::chat::server::Server::make_socket_non_blocking(int sfd) {
