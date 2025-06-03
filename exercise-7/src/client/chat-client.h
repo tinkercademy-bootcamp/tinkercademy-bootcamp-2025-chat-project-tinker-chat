@@ -18,6 +18,8 @@ private:
   std::thread receiver_thread_;
   sockaddr_in create_server_address(const std::string &server_ip, int port);
   void connect_to_server(int sock, sockaddr_in &server_address);
+  void receive_messages();
+  void handle_user_input();
 
   static constexpr int kBufferSize = 1024;
 };

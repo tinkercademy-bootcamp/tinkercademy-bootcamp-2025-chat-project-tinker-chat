@@ -54,3 +54,8 @@ void tt::chat::client::Client::connect_to_server(
       connect(sock, (sockaddr *)&server_address, sizeof(server_address));
   check_error(err_code < 0, "Connection Failed.\n");
 }
+
+void tt::chat::client::Client::start() {
+  receiver_thread_ = std::thread(&Client::receive_messages, this);
+  handle_user_input();
+}
