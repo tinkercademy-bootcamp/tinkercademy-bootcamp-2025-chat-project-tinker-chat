@@ -173,3 +173,11 @@ void tt::chat::server::Server::handle_command(ClientInfo& client, std::vector<st
     send(client.fd, "Unknown command\n", 16, 0);
   }
 }
+
+void tt::chat::server::Server::broadcast_to_channel(const std::string& channel, const std::string& msg, int sender_fd) {
+  for(int client_fd : channels_[channel]) {
+    if(client_fd != sender_fd) {
+      send(client_fd, msg.c_str(), msg.size(), 0);
+    }
+  }
+}
