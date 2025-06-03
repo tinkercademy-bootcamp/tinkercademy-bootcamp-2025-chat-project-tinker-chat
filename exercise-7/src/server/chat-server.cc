@@ -140,7 +140,9 @@ void tt::chat::server::Server::handle_command(ClientInfo& client, std::vector<st
     send(client.fd, ("Joined channel: " + channel_name + "\n").c_str(), channel_name.size() + 16, 0);
   } else if(tokens[0] == "/leave") {
     channels_[client.current_channel].erase(client.fd);
+    broadcast_to_channel(client.current_channel, client.username + " has left the channel.\n", client.fd);
     client.current_channel = "general";
+    broadcast_to_channel("general", client.username + " has joined the channel.\n", client.fd);
     send(client.fd, "Left current channel. You are now in 'general' channel.\n", 56, 0);
   } else if(tokens[0] == "/list") {
     std::string channel_list = "Available channels:\n";
