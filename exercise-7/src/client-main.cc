@@ -8,7 +8,7 @@
 
 #include "client/chat-client.h"
 
-int main(int argc, char *argv[]) {
+int main() {
   const int kPort = 8080;
   const std::string kServerAddress = "127.0.0.1";
 
