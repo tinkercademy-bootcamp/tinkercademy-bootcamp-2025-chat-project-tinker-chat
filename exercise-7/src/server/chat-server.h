@@ -40,7 +40,7 @@ public:
   */
   void handle_connections();
 
-  
+
 private:
 
   // Socket file descriptor for the server
@@ -122,40 +122,6 @@ private:
   Description: This function sends the message to all clients in the specified channel, except for the sender.
   */
   void broadcast_to_channel(const std::string& channel, const std::string& msg, int sender_fd = -1);
-
-  /*
-  Function: set_socket_options
-  Purpose: Sets socket options for the given socket file descriptor.
-  Parameters:
-    sock - The socket file descriptor.
-    opt - The option to set (e.g., SO_REUSEADDR).
-  Returns: None
-  Throws: std::runtime_error if setting socket options fails.
-  Description: This function sets the specified socket options to allow the server to reuse the address and port.
-  */
-  static void set_socket_options(int sock, int opt);
-
-  /*
-  Function: make_socket_non_blocking
-  Purpose: Sets the given socket file descriptor to non-blocking mode.
-  Parameters:
-    sfd - The socket file descriptor to set to non-blocking mode.
-  Returns: 0 on success, -1 on failure.
-  Throws: None
-  Description: This function modifies the socket's file descriptor flags to make it non-blocking, allowing the server to handle multiple connections without blocking on I/O operations.
-  */
-  static int make_socket_non_blocking(int sfd);
-
-  /*
-  Function: split_message
-  Purpose: Splits a message into tokens based on whitespace.
-  Parameters:
-    msg - The message to be split.
-  Returns: A vector of strings containing the tokens.
-  Throws: None
-  Description: This function takes a message string and splits it into individual tokens based on whitespace characters. It returns a vector of strings containing the tokens.
-  */
-  std::vector<std::string> split_message(const std::string& msg);
 
 };
 } // namespace tt::chat::server
