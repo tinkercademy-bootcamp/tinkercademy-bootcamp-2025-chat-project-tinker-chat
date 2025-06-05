@@ -9,8 +9,13 @@
 - https://github.com/joakimthun/io-uring-echo-server
 - https://man7.org/linux/man-pages/man7/epoll.7.html
 - What other resources can you find about epoll?
+  - "Linux System Programming" by Robert Love
 - Are the above code repos examples of good code or bad code?
+  - No separation of files, no error handling, no directory structure but easy to read.
 - How do you decide what is good code or bad code?
+  - A good code is well structured, has a clear separation of concerns, 
+    has error handling, and is easy to read and maintain. Bad code is messy, 
+    hard to read, and lacks structure.
 
 ## Creating a Chat Client/Server Using EPOLL
 
@@ -45,4 +50,9 @@
   the source code and build it
 - What are the tradeoffs between using a library from `usr/lib` vs git cloning
   the source and using that instead?
+  - Using a library from `usr/lib` is easier and faster to set up, but it may not
+    be the latest version or may not have the features you need. Cloning the source
+    allows you to modify the library, but requires more setup and maintenance.
 - What is the difference between `-l` and `-L` when linking using `g++`?
+  - `-l` specifies the name of the library to link against, while `-L` specifies the
+    directory where the library is located.
