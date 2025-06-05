@@ -5,7 +5,7 @@
 #include "spdlog/spdlog.h"
 
 #include "commands/command-handler.h"
-#include "commands/server-utils.h"
+#include "commands/command-utils.h"
 #include "chat-server.h"
 #include "../net/chat-sockets.h"
 #include "../utils.h"
