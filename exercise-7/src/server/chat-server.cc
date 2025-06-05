@@ -23,16 +23,11 @@ tt::chat::server::Server::Server(int port)
   auto err_code = bind(socket_, (sockaddr *)&address_, sizeof(address_));
   check_error(err_code < 0, "bind failed\n");
 
-  err_code = listen(socket_, 3);
-  check_error(err_code < 0, "listen failed\n");
-
   make_socket_non_blocking(socket_);
   epoll_fd_ = epoll_create1(0);
   epoll_event event = {EPOLLIN, {.fd = socket_}};
   err_code = epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, socket_, &event);
   channels_["general"] = std::set<int>();
-
-  std::cout << "Server listening on port " << port << "\n";
 }
 
 tt::chat::server::Server::~Server() {
@@ -40,7 +35,11 @@ tt::chat::server::Server::~Server() {
   close(epoll_fd_);
 }
 
-void tt::chat::server::Server::handle_connections() {
+void tt::chat::server::Server::handle_connections(int port) {
+  auto err_code = listen(socket_, 3);
+  check_error(err_code < 0, "listen failed\n");
+  std::cout << "Server listening on port " << port << "\n";
+
   epoll_event events[kMaxEvents];
   while (true) {
     int ready_fds = epoll_wait(epoll_fd_, events, kMaxEvents, -1);

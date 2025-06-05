@@ -9,7 +9,7 @@ int main() {
   const int kPort = 8080;
 
   tt::chat::server::Server server(kPort);
-  server.handle_connections();
+  server.handle_connections(kPort);
 
   return 0;
 }

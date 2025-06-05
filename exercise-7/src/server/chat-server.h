@@ -33,12 +33,13 @@ public:
   /*
   Function: handle_connections
   Purpose: Handles incoming client connections and processes their messages.
-  Parameters: None
+  Parameters:
+    port - The port number on which the server is listening for incoming connections.
   Returns: None
   Throws: std::runtime_error if there is an error in accepting connections or processing messages.
   Description: This function runs an event loop that waits for incoming connections and messages from clients.
   */
-  void handle_connections();
+  void handle_connections(int port);
 
 
 private:
