@@ -11,26 +11,6 @@ tt::chat::client::Client::Client(int port,
   connect_to_server(socket_, address);
 }
 
-// std::string tt::chat::client::Client::send_and_receive_message(
-//     const std::string &message) {
-//   using namespace tt::chat;
-//   char recv_buffer[kBufferSize] = {0};
-
-//   // Send the message to the server
-//   send(socket_, message.c_str(), message.size(), 0);
-//   std::cout << "Sent: " << message << "\n";
-
-//   // Receive response from the server
-//   ssize_t read_size = read(socket_, recv_buffer, kBufferSize);
-//   if (read_size > 0) {
-//     return std::string(recv_buffer);
-//   } else if (read_size == 0) {
-//     return "Server closed connection.\n";
-//   } else {
-//     return "Read error.\n";
-//   }
-// }
-
 tt::chat::client::Client::~Client() { 
   std::cout << "Closing client connection...\n";
   running_ = false;
