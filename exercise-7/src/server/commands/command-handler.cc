@@ -11,8 +11,8 @@ void handle_command(ClientInfo& client,
                     std::unordered_map<std::string, std::set<int>>& channels) {
   const std::string& command = tokens[0];
 
-  if (command == "/username") {
-    command_username(client, tokens);
+  if (command == "/rename") {
+    command_rename(client, tokens);
   } else if (command == "/join") {
     command_join(client, tokens, channels);
   } else if (command == "/leave") {
@@ -28,7 +28,7 @@ void handle_command(ClientInfo& client,
   }
 }
 
-void command_username(ClientInfo& client, const std::vector<std::string>& tokens) {
+void command_rename(ClientInfo& client, const std::vector<std::string>& tokens) {
   if (!is_valid_args(tokens, 2)) {
     send_message(client.fd, "Usage: /username <your_username>\n");
     return;

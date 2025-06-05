@@ -73,7 +73,7 @@ void tt::chat::server::Server::handle_accept(int sock) {
   }
   clients_[client_fd] = ClientInfo(client_fd);
   channels_["general"].insert(client_fd);
-  commands::send_message(client_fd, "Welcome to the chat server! You are in the 'general' channel. You can set your username using /username command\n");
+  commands::send_message(client_fd, "Welcome to the chat server! You are in the 'general' channel.\n");
   SPDLOG_INFO("New client connected: fd = {}", client_fd);
 }
 

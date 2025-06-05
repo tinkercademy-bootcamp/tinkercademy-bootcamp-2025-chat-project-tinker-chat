@@ -35,7 +35,7 @@ Parameters:
 Returns: None
 Throws: None
 */
-void command_username(ClientInfo& client, const std::vector<std::string>& tokens);
+void command_rename(ClientInfo& client, const std::vector<std::string>& tokens);
 
 /*
 Function: command_join
