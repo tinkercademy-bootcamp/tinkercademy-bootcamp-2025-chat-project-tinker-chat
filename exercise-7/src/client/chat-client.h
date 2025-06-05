@@ -17,7 +17,8 @@ public:
   Returns: A Client object that is ready to connect to the server.
   Throws: std::runtime_error if there is an error in creating the socket or connecting to the server.
   */
-  Client(int port, const std::string &server_address);
+  Client(int port, const std::string &server_address, 
+         const std::string &username);
 
   /*
   Function - start
@@ -48,6 +49,9 @@ private:
 
   // A receiver thread to handle incoming messages
   std::thread receiver_thread_;
+
+  // Username for the client
+  std::string username_;
 
 
 

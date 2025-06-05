@@ -5,8 +5,11 @@
 #include <iostream>
 
 tt::chat::client::Client::Client(int port,
-                                         const std::string &server_address)
-    : socket_{tt::chat::net::create_socket()}, running_(true) {
+                                 const std::string& server_address,
+                                 const std::string& username)
+    : socket_{tt::chat::net::create_socket()},
+      running_(true),
+      username_(username) {
   sockaddr_in address = create_server_address(server_address, port);
   connect_to_server(socket_, address);
 }
@@ -40,6 +43,13 @@ void tt::chat::client::Client::connect_to_server(
 
 void tt::chat::client::Client::start() {
   receiver_thread_ = std::thread(&Client::receive_messages, this);
+
+  // Send initial /username <username>
+  std::string init_command = "/rename " + username_;
+  if (send(socket_, init_command.c_str(), init_command.size(), 0) < 0) {
+    SPDLOG_ERROR("Failed to send initial username");
+  }
+
   handle_user_input();
 }
 
